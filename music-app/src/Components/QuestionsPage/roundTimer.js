@@ -30,3 +30,5 @@ const MyCountdown = (props) => {
 };
 
 export default MyCountdown;
+
+// Info https://www.npmjs.com/package/react-countdown-circle-timer
