@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import QuestPage from './Components/QuestionsPage/quest_page';
+import Quizz from './Components/Quizz';
 
 function App() {
   return (
     <div className="App">
-      <QuestPage />
+      <Quizz />
     </div>
   );
 }

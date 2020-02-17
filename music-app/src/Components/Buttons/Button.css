@@ -32,7 +32,6 @@
 	top:1px;
 }
 
-.ButtonRowTop, .ButtonRowBottom {
+.button {
     flex-basis: 50%;
 }
-

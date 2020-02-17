@@ -1,6 +1,7 @@
 import React from 'react';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
+
 const MyCountdown = (props) => {
     
     const renderTime = value => {
@@ -10,18 +11,18 @@ const MyCountdown = (props) => {
       
         return (
           <div className="timer">
-            <div className="text">Remaining</div>
+            {/* <div className="text">Remaining</div> */}
             <div className="value">{value}</div>
-            <div className="text">seconds</div>
+            {/* <div className="text">seconds</div> */}
           </div>
         );
     };
-    
+  
     
     return (
         <CountdownCircleTimer
         isPlaying
-        durationSeconds={10}
+        durationSeconds={20}
         colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
         renderTime={renderTime}
         // onComplete={() => [true, 1000]}
