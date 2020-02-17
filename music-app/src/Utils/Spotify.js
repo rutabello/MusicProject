@@ -1,5 +1,5 @@
 //!!! IMPORTANT: No push to github as long as the clientId is visible in the files!
-const clientId = '9287dabde0594abb9afdf476873dc991'; 
+const clientId = ''; 
 const redirectUri = 'http://localhost:3000/'; // Have to add this to an accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
  
