@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import Sound from 'react-sound';
 import Button from './Buttons/Button';
 import './Buttons/Button.css';
-import MyCountdown from './Countdown/MyCountdown';
-import Shuffle from '../Utils/shuffleFunction';
-import Spotify from '../Utils/Spotify';
+import Shuffle from './Utils/Shuffle';
+import Spotify from './Utils/Spotify';
+import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
 
 class Quizz extends Component {
 
     spotifyObject = {}
+    display = ""
 
     state = {
         songNames:[],
@@ -16,7 +16,7 @@ class Quizz extends Component {
             preview_url: "",
             name: ""
         },
-        playStatus: Sound.status.STOPPED
+        chosenSong: ""
     }
 
     /**
@@ -46,22 +46,28 @@ class Quizz extends Component {
         return fourShuffledSongsArr;
     }
 
-    startGame = () => {
+    chooseSongs = () => {
 
         this.setState({
             songNames: this.getSongsToDisplay(this.state.currentSong.name)
         })
+    }
+
+    setNewRandomSong = () => {
+
+        var currentSong = this.spotifyObject.tracks.items[Math.floor(Math.random()*this.spotifyObject.tracks.items.length)].track;
 
         this.setState({
-            playStatus: Sound.status.PLAYING
-        })
+            currentSong: {
+                preview_url: currentSong.preview_url,
+                name: currentSong.name
+            }
+        });
     }
 
     async componentDidMount() {
         
         this.spotifyObject = await Spotify.getPlaylist();
-
-        console.log(this.spotifyObject)
 
         var currentSong = this.spotifyObject.tracks.items[Math.floor(Math.random()*this.spotifyObject.tracks.items.length)].track;
 
@@ -74,29 +80,25 @@ class Quizz extends Component {
     }
 
 
-
     render () {
         return (
             <div className="QuestionAndAnswers">
-                <div className="Player">
-                    <Sound 
-                        url={this.state.currentSong.preview_url}
-                        playStatus={this.state.playStatus}
-                        autoLoad
-                        // onLoading={this.handleSongLoading}
-                        // onPlaying={this.handleSongPlaying}
-                        // onFinishedPlaying={this.handleSongFinishedPlaying}
+
+                <div className="Countdown">
+                    <PlayerCountdown
+                        onMusicPlays={this.chooseSongs}
+                        setNewRandomSong={this.setNewRandomSong}
+                        songURL={this.state.currentSong.preview_url} 
                     />
                 </div>
-                <button onClick={this.startGame}>Play</button>
-                <div className="Countdown">
-                        <MyCountdown />
-                </div>
+
                 <div className="FourButtons">
-                    {this.state.songNames.map(function(songName){
-                            return (<Button key={songName} className="button" answer={songName}/>)
-                        })
-                        }
+                    {this.state.songNames.map(function(songName) {
+                        return (
+                            <Button key={songName} className="button" printedSong={songName} />
+                        )
+                    })
+                    }
                 </div>
             </div>
         )

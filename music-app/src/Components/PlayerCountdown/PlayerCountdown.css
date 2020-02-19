@@ -31,3 +31,7 @@
   .value {
     font-size: 36px;
   }
+
+  .displaynone {
+    display: none;
+  }
