@@ -2,8 +2,15 @@ import React from 'react';
 import './Button.css';
 
 const Button = (props) => {
+
+    console.log(props)
+
     return (
-        <button className="myButton">{props.printedSong}</button>
+        <button 
+            onClick={props.onClick} 
+            className={"myButton button " + (props.isCorrect ? "green" : "red")}>
+                {props.printedSong}
+        </button>
     )
 };
 

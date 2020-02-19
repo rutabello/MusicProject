@@ -35,3 +35,15 @@
 .button {
     flex-basis: 50%;
 }
+
+.green {
+	background:linear-gradient(to bottom, #1ab543 5%, #499421 100%);
+	background-color:#1ab543;
+	border:1px solid #18ab29;
+}
+
+.red {
+	background:linear-gradient(to bottom, #e62910 5%, #ad3434 100%);
+	background-color:#e62910;
+	border:1px solid #d62f2f;
+}

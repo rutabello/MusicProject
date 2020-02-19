@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Button from './Buttons/Button';
-import './Buttons/Button.css';
+// import './Buttons/Button.css';
 import Shuffle from './Utils/Shuffle';
 import Spotify from './Utils/Spotify';
 import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
@@ -16,8 +16,11 @@ class Quizz extends Component {
             preview_url: "",
             name: ""
         },
-        chosenSong: ""
+        
     }
+
+    chosenSong= ""
+    coincidence= false
 
     /**
      * This fn returns an array with 4 song names randomly including the current song 
@@ -65,6 +68,31 @@ class Quizz extends Component {
         });
     }
 
+    writeChosenSong = (songName) => {
+        this.chosenSong = songName;
+        console.log("PACO", this.chosenSong)
+    }
+
+    checkCoincidence = () => {  //Tells the button if the user has chosen the right song or not
+        
+        if (this.state.currentSong.name === this.chosenSong) {
+            this.coincidence=true;
+        }
+        this.coincidence=false
+    }
+
+    checkCoincidenceTwo = (songName) => {  //Tells the button if it itself has de correct answer
+                
+        if (songName === this.state.currentSong.name) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+
     async componentDidMount() {
         
         this.spotifyObject = await Spotify.getPlaylist();
@@ -89,13 +117,19 @@ class Quizz extends Component {
                         onMusicPlays={this.chooseSongs}
                         setNewRandomSong={this.setNewRandomSong}
                         songURL={this.state.currentSong.preview_url} 
+                        coincidence={this.checkCoincidence}
                     />
                 </div>
 
                 <div className="FourButtons">
-                    {this.state.songNames.map(function(songName) {
+                    {this.state.songNames.map((songName) => {
                         return (
-                            <Button key={songName} className="button" printedSong={songName} />
+                            <Button 
+                                key={songName} 
+                                printedSong={songName} 
+                                onClick={() => this.writeChosenSong(songName)}//We write it like this so the function writeChoosenSong isn't executed when the button is rendered but when the button is clicked. Different than what we're doing some lines above in the onMusicPlays, setNewRandomSong or songURL
+                                isCorrect={this.checkCoincidenceTwo(songName)}
+                            />
                         )
                     })
                     }
@@ -107,3 +141,4 @@ class Quizz extends Component {
 
 
 export default Quizz;
+

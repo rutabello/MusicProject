@@ -30,8 +30,9 @@ class PlayerCountdown extends Component {
     setTimeout(() => {
     
       this.stopMusic()
+      this.props.coincidence()//Write it above the setNewRandomSong so currentSong still hasn't change and we can do the checking
       this.props.setNewRandomSong();
-
+      //Aquí he de cridar la funció comprovarCoincidencia
     }, SONG_TIMER_DURATION * 1000);
     
     this.props.onMusicPlays();
