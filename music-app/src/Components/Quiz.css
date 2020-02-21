@@ -1,0 +1,11 @@
+.forceGrayColor button {
+    background: #CCC !important;
+}
+
+.show {
+    display: inline
+}
+
+.hide {
+    display: none
+}

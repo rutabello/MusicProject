@@ -3,12 +3,12 @@ import './Button.css';
 
 const Button = (props) => {
 
-    console.log(props)
+    const isCorrect = props.printedSong === props.currentSong;
 
     return (
         <button 
             onClick={props.onClick} 
-            className={"myButton button " + (props.isCorrect ? "green" : "red")}>
+            className={"myButton button " + (isCorrect ? "green" : "red")}>
                 {props.printedSong}
         </button>
     )

@@ -18,7 +18,7 @@
 	padding:11px 23px;
 	text-decoration:none;
     text-shadow:0px -1px 0px #2b665e;
-    /* flex-basis: 50%; */
+    flex-basis: 50%;
     width: 90%;
     height: 70px;
     margin-bottom: 10px;
@@ -36,14 +36,14 @@
     flex-basis: 50%;
 }
 
-.green {
-	background:linear-gradient(to bottom, #1ab543 5%, #499421 100%);
-	background-color:#1ab543;
-	border:1px solid #18ab29;
+.red {
+	background:linear-gradient(to bottom, #d63737 5%, #691b1b 100%);
+	background-color:#d63737;
+	border:1px solid #566963;
 }
 
-.red {
-	background:linear-gradient(to bottom, #e62910 5%, #ad3434 100%);
-	background-color:#e62910;
-	border:1px solid #d62f2f;
+.green {
+	background:linear-gradient(to bottom, #31ad26 5%, #245215 100%);
+	background-color:#31ad26;
+	border:1px solid #566963;
 }

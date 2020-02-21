@@ -20,22 +20,24 @@ class PlayerCountdown extends Component {
   // Methods
   playMusicStartTimer = () => {
 
+    this.props.showAnswerCount(); //This makes the answer counter appear only when you've started playing the game and not before
+
+    this.props.setNewRandomSong();
+
     this.setState({
-      uniqueKey: Date.now(),
+      uniqueKey: Date.now(), //This makes the countdown start counting when the new state is set (on play clicked) instead of when the page is loaded
       playStatus: Sound.status.PLAYING,
       isPlaying: true,
-      playClicked: true
+      playClicked: true //This makes the 'play' button disappear once you click on it
     })
 
     setTimeout(() => {
-    
+
       this.stopMusic()
-      this.props.coincidence()//Write it above the setNewRandomSong so currentSong still hasn't change and we can do the checking
-      this.props.setNewRandomSong();
-      //Aquí he de cridar la funció comprovarCoincidencia
+
+      this.props.coincidence()
+
     }, SONG_TIMER_DURATION * 1000);
-    
-    this.props.onMusicPlays();
   }
 
   renderTime = value => {
@@ -83,6 +85,7 @@ class PlayerCountdown extends Component {
           durationSeconds={SONG_TIMER_DURATION}
           colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
           renderTime={this.renderTime}
+          size={120}
         />
 
       </div>

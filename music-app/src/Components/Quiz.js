@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import Button from './Buttons/Button';
-// import './Buttons/Button.css';
+import './Quiz.css'
 import Shuffle from './Utils/Shuffle';
 import Spotify from './Utils/Spotify';
 import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
 
-class Quizz extends Component {
+class Quiz extends Component {
 
     spotifyObject = {}
     display = ""
+    chosenSong = ""
+    coincidence = false
+    answerCountShow= false
 
     state = {
         songNames:[],
@@ -16,11 +19,12 @@ class Quizz extends Component {
             preview_url: "",
             name: ""
         },
-        
+        hideResults: true,
+        correctAnswers: 0,
+        total: 0,
     }
 
-    chosenSong= ""
-    coincidence= false
+
 
     /**
      * This fn returns an array with 4 song names randomly including the current song 
@@ -44,7 +48,6 @@ class Quizz extends Component {
         
         var fourShuffledSongsArr = Shuffle(fourNonShuffledSongsArr)
         
-        console.log(fourShuffledSongsArr)
 
         return fourShuffledSongsArr;
     }
@@ -57,58 +60,47 @@ class Quizz extends Component {
     }
 
     setNewRandomSong = () => {
-
-        var currentSong = this.spotifyObject.tracks.items[Math.floor(Math.random()*this.spotifyObject.tracks.items.length)].track;
+        
+        var randomSong = this.spotifyObject.tracks.items[Math.floor(Math.random()*this.spotifyObject.tracks.items.length)].track;
 
         this.setState({
             currentSong: {
-                preview_url: currentSong.preview_url,
-                name: currentSong.name
-            }
+                preview_url: randomSong.preview_url,
+                name: randomSong.name
+            },
+            songNames: this.getSongsToDisplay(randomSong.name),
+            hideResults: true, //I don't think thingthis line is needed since it's not changing any
+            total: this.state.total +1
         });
     }
 
     writeChosenSong = (songName) => {
         this.chosenSong = songName;
-        console.log("PACO", this.chosenSong)
     }
 
-    checkCoincidence = () => {  //Tells the button if the user has chosen the right song or not
+    checkCoincidence = () => {  //Checks if the user has chosen the right song or not
         
-        if (this.state.currentSong.name === this.chosenSong) {
-            this.coincidence=true;
-        }
-        this.coincidence=false
+        this.coincidence = this.state.currentSong.name === this.chosenSong
+    
+        this.setState({
+            hideResults: false,
+            correctAnswers: this.coincidence ? (this.state.correctAnswers +1) : this.state.correctAnswers
+        })
     }
 
-    checkCoincidenceTwo = (songName) => {  //Tells the button if it itself has de correct answer
-                
-        if (songName === this.state.currentSong.name) {
-            return true;
-        }
-
-        return false;
+    showAnswerCount = () => {
+        this.answerCountShow= true
     }
-
-
 
 
     async componentDidMount() {
         
         this.spotifyObject = await Spotify.getPlaylist();
-
-        var currentSong = this.spotifyObject.tracks.items[Math.floor(Math.random()*this.spotifyObject.tracks.items.length)].track;
-
-        this.setState({
-            currentSong: {
-                preview_url: currentSong.preview_url,
-                name: currentSong.name
-            }
-        });
     }
 
 
     render () {
+        
         return (
             <div className="QuestionAndAnswers">
 
@@ -118,21 +110,27 @@ class Quizz extends Component {
                         setNewRandomSong={this.setNewRandomSong}
                         songURL={this.state.currentSong.preview_url} 
                         coincidence={this.checkCoincidence}
+                        showAnswerCount={this.showAnswerCount}
                     />
                 </div>
 
-                <div className="FourButtons">
+                <div className={"FourButtons " + (this.state.hideResults ? 'forceGrayColor' : "")} >
                     {this.state.songNames.map((songName) => {
                         return (
                             <Button 
                                 key={songName} 
                                 printedSong={songName} 
                                 onClick={() => this.writeChosenSong(songName)}//We write it like this so the function writeChoosenSong isn't executed when the button is rendered but when the button is clicked. Different than what we're doing some lines above in the onMusicPlays, setNewRandomSong or songURL
-                                isCorrect={this.checkCoincidenceTwo(songName)}
+                                currentSong={this.state.currentSong.name}
                             />
                         )
                     })
                     }
+                </div>
+                <div>
+                    <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
+                    {/* <p>Right answers:<br /> {this.state.correctAnswers}  out of {this.state.total}</p> */}
+
                 </div>
             </div>
         )
@@ -140,5 +138,5 @@ class Quizz extends Component {
 }
 
 
-export default Quizz;
+export default Quiz;
 
