@@ -4,6 +4,7 @@ import './Quiz.css'
 import Shuffle from './Utils/Shuffle';
 import Spotify from './Utils/Spotify';
 import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
+import Sound from 'react-sound'
 
 class Quiz extends Component {
 
@@ -12,6 +13,8 @@ class Quiz extends Component {
     chosenSong = ""
     coincidence = false
     answerCountShow= false
+    unknownSongs= []
+    
 
     state = {
         songNames:[],
@@ -22,6 +25,8 @@ class Quiz extends Component {
         hideResults: true,
         correctAnswers: 0,
         total: 0,
+        songUrl: "",
+        playerState: Sound.status.PLAYING
     }
 
 
@@ -70,7 +75,8 @@ class Quiz extends Component {
             },
             songNames: this.getSongsToDisplay(randomSong.name),
             hideResults: true, //I don't think thingthis line is needed since it's not changing any
-            total: this.state.total +1
+            total: this.state.total +1,
+            playerState: Sound.status.STOPPED
         });
     }
 
@@ -81,6 +87,12 @@ class Quiz extends Component {
     checkCoincidence = () => {  //Checks if the user has chosen the right song or not
         
         this.coincidence = this.state.currentSong.name === this.chosenSong
+
+        if (this.coincidence !== true) { 
+            this.unknownSongs.push(this.state.currentSong.name)
+        }
+
+        console.log('paco' + this.unknownSongs)
     
         this.setState({
             hideResults: false,
@@ -90,6 +102,28 @@ class Quiz extends Component {
 
     showAnswerCount = () => {
         this.answerCountShow= true
+    }
+
+
+    getSongUrl = (songName) => {
+        
+        var allTracksArr = this.spotifyObject.tracks.items.map((item) => { //allTracksArr is an array made of tracks (each one, in an object, and as much tracks as songs are in the playlist)
+            return item.track
+        })
+
+        var oneTrackArr = allTracksArr.filter((track) => {  //trackArr is an array with an only index which is an object with 2 properties: name and preview_url
+            return track.name === songName //Returns an array with the (only) object that fulfills this condition
+        })
+
+        var songUrl = oneTrackArr[0].preview_url
+
+        this.setState({
+            songUrl: songUrl,
+            playerState: Sound.status.PLAYING
+        })
+
+
+        // return this.spotifyObject.tracks.items.filter(item => item.track.name === songName)[0].preview_url This does the same as getSongUrl but with much less lines
     }
 
 
@@ -129,8 +163,24 @@ class Quiz extends Component {
                 </div>
                 <div>
                     <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
-                    {/* <p>Right answers:<br /> {this.state.correctAnswers}  out of {this.state.total}</p> */}
-
+                </div>
+                <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
+                    <h4>Learn from your mistakes</h4>
+                    <ul>
+                        {this.unknownSongs.map((song) => {
+                            return (
+                                <div>
+                                    <li>{song} <button onClick={() => this.getSongUrl(song)}>Listen again</button></li>
+                                     {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
+                                </div>
+                            )
+                        })}
+                    </ul>
+                    <Sound 
+                        url={this.state.songUrl}
+                        playStatus={this.state.playerState}
+                        autoLoad
+                    />
                 </div>
             </div>
         )

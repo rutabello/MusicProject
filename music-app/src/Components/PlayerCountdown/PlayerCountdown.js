@@ -15,10 +15,12 @@ class PlayerCountdown extends Component {
   }
 
   exampleRef = React.createRef(); // Create the ref
-  
+  countdownIsDisplayed = false
 
   // Methods
   playMusicStartTimer = () => {
+
+    this.countdownIsDisplayed = true;
 
     this.props.showAnswerCount(); //This makes the answer counter appear only when you've started playing the game and not before
 
@@ -79,15 +81,16 @@ class PlayerCountdown extends Component {
           autoLoad
         />
 
-        <CountdownCircleTimer
-          key={this.state.uniqueKey}
-          isPlaying={this.state.isPlaying}
-          durationSeconds={SONG_TIMER_DURATION}
-          colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
-          renderTime={this.renderTime}
-          size={120}
-        />
-
+        <div className={this.countdownIsDisplayed? "show" : "hide"}>
+          <CountdownCircleTimer
+            key={this.state.uniqueKey}
+            isPlaying={this.state.isPlaying}
+            durationSeconds={SONG_TIMER_DURATION}
+            colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+            renderTime={this.renderTime}
+            size={120}
+          />
+        </div>
       </div>
     )
   }
