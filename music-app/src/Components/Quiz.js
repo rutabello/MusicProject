@@ -5,6 +5,7 @@ import Shuffle from './Utils/Shuffle';
 import Spotify from './Utils/Spotify';
 import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
 import Sound from 'react-sound'
+import ReplayButton from './Buttons/ReplayButton'
 
 class Quiz extends Component {
 
@@ -26,7 +27,9 @@ class Quiz extends Component {
         correctAnswers: 0,
         total: 0,
         songUrl: "",
-        playerState: Sound.status.PLAYING
+        playerState: Sound.status.PLAYING,
+        playing: false,
+        replayingSong: ""
     }
 
 
@@ -119,11 +122,20 @@ class Quiz extends Component {
 
         this.setState({
             songUrl: songUrl,
-            playerState: Sound.status.PLAYING
+            playerState: Sound.status.PLAYING,
+            playing: true,
+            replayingSong: songName
         })
 
 
         // return this.spotifyObject.tracks.items.filter(item => item.track.name === songName)[0].preview_url This does the same as getSongUrl but with much less lines
+    }
+
+    stopMusic = () => {
+        this.setState({
+            playerState: Sound.status.STOPPED,
+            playing: false
+        })
     }
 
 
@@ -138,7 +150,7 @@ class Quiz extends Component {
         return (
             <div className="QuestionAndAnswers">
 
-                <div className="Countdown">
+                <div className="countdown">
                     <PlayerCountdown
                         onMusicPlays={this.chooseSongs}
                         setNewRandomSong={this.setNewRandomSong}
@@ -148,7 +160,7 @@ class Quiz extends Component {
                     />
                 </div>
 
-                <div className={"FourButtons " + (this.state.hideResults ? 'forceGrayColor' : "")} >
+                <div className={"fourButtons " + (this.state.hideResults ? 'forceGrayColor' : "")} >
                     {this.state.songNames.map((songName) => {
                         return (
                             <Button 
@@ -169,9 +181,14 @@ class Quiz extends Component {
                     <ul>
                         {this.unknownSongs.map((song) => {
                             return (
-                                <div>
-                                    <li>{song} <button onClick={() => this.getSongUrl(song)}>Listen again</button></li>
-                                     {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
+                                <div className="list">
+                                    <li>{song} 
+                                        <button className="repeat-button" onClick={this.state.playing ? () => this.stopMusic() : () => this.getSongUrl(song)}>
+                                            {this.state.playing ? "Pause" : "Listen again"} 
+                                        </button>
+                                        {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
+                                        {/* Still need to figure out how to start playing a new song if the user doesn't pause the old song before */}
+                                    </li>
                                 </div>
                             )
                         })}

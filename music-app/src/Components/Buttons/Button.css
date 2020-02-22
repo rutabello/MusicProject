@@ -1,6 +1,7 @@
-.FourButtons {
-    display: flex;
-    align-items: center;
+.fourButtons {
+    /* display: flex;
+	align-items: center; */
+	margin-top: 15px;
 }
 
 .myButton {
@@ -17,19 +18,29 @@
 	font-weight:bold;
 	padding:11px 23px;
 	text-decoration:none;
-    text-shadow:0px -1px 0px #2b665e;
-    flex-basis: 50%;
-    width: 90%;
-    height: 70px;
+    text-shadow:0px -1px 0px #000000;
+    /* flex-basis: 50%; */
+	width: 90%;
+	height: 70px;
+    /* height: 70px; //Need something to make all buttons heigh increase when one needs to */
     margin-bottom: 10px;
 }
+
 .myButton:hover {
 	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
 	background-color:#6c7c7c;
 }
+
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+@media (max-width:450px){
+	 .button.myButton.button{
+		display: block;
+		margin: 0.4em auto;
+	}
 }
 
 .button {
@@ -47,3 +58,47 @@
 	background-color:#31ad26;
 	border:1px solid #566963;
 }
+
+
+
+/* .myButton {
+	display: inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #FFFFFF;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:#FFFFFF;
+	text-align:center;
+	transition: all 0.2s;
+}
+	
+.myButton:hover{
+	color:#000000;
+	background-color:#FFFFFF;
+}
+	
+@media all and (max-width:30em){
+	 .myButton{
+		display:block;
+		margin:0.4em auto;
+	}
+} */
+
+/* .neon {
+	color: #fff;
+	margin-top: 30%;
+	text-shadow:
+		0 0 5px rgba(0,178,255,1),
+		0 0 10px rgba(0,178,255,1),
+		0 0 20px rgba(0,178,255,1),
+		0 0 40px rgba(38,104,127,1),
+		0 0 80px rgba(38,104,127,1),
+		0 0 90px rgba(38,104,127,1),
+		0 0 100px rgba(38,104,127,1),
+		0 0 140px rgba(38,104,127,1),
+		0 0 180px rgba(38,104,127,1);
+} */

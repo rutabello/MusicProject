@@ -1,5 +1,5 @@
 .forceGrayColor button {
-    background: #CCC !important;
+    background: #768d87 !important;
 }
 
 .show {
@@ -8,4 +8,12 @@
 
 .hide {
     display: none
+}
+
+li {
+    list-style: none
+}
+
+.countdown {
+    margin-top: 25px;
 }
