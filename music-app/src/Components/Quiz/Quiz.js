@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
-import Button from './Buttons/Button';
+import Button from '../Buttons/Button';
 import './Quiz.css'
-import Shuffle from './Utils/Shuffle';
-import Spotify from './Utils/Spotify';
-import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
-import Sound from 'react-sound'
+import '../../App.css'
+import Shuffle from '../Utils/Shuffle';
+import Spotify from '../Utils/Spotify';
+import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
+import Sound from 'react-sound';
+import {Link} from 'react-router-dom';
+
+
+let worldAll = "37i9dQZEVXbMDoHDwVN2tF";
+let germany = "6HiZDoQlmYliE3RhFm4Fek";
+let germanyClassics = '4BfSTZ6p3bQCZNmV7eovMD';
+let rockAllTime = "2FbDbxcvDsshnzDNc29oFH";
+
 
 class Quiz extends Component {
 
@@ -20,16 +29,20 @@ class Quiz extends Component {
         songNames:[],
         currentSong: {
             preview_url: "",
-            name: ""
+            name: "",
+          
         },
+  
+        clave: "37i9dQZEVXbMDoHDwVN2tF",
+        german: "6HiZDoQlmYliE3RhFm4Fek",
+        world: "37i9dQZEVXbMDoHDwVN2tF",
+
         hideResults: true,
         correctAnswers: 0,
         total: 0,
         songUrl: "",
         playerState: Sound.status.PLAYING
     }
-
-
 
     /**
      * This fn returns an array with 4 song names randomly including the current song 
@@ -126,10 +139,29 @@ class Quiz extends Component {
         // return this.spotifyObject.tracks.items.filter(item => item.track.name === songName)[0].preview_url This does the same as getSongUrl but with much less lines
     }
 
+        changeList = () => {
+
+             let newList = germanyClassics;
+
+             this.setState({
+
+                clave: newList
+             })
+              console.log(this.state.clave)
+            }
+    
+     /* 
+      async componentDidMount() {
+      // Make two requests
+      const [firstResponse, secondResponse] = await Promise.all([
+        axios.get(`https://api.chucknorris.io/jokes/random`),
+        axios.get(`https://api.chucknorris.io/jokes/random`)
+      ]);
+     */  
 
     async componentDidMount() {
         
-        this.spotifyObject = await Spotify.getPlaylist();
+        this.spotifyObject = await Spotify.getPlaylist(this.state.clave);
     }
 
 
@@ -181,7 +213,12 @@ class Quiz extends Component {
                         playStatus={this.state.playerState}
                         autoLoad
                     />
+                  
                 </div>
+                <h3><Link to="/">Out the door</Link></h3>
+                    <h3 className="hideGame"><Link to="quiz">Quiz</Link></h3>
+                    <h3><Link to="map">Discover more places</Link></h3>
+                    <button onClick={this.changeList}>Click</button>
             </div>
         )
     };
@@ -189,4 +226,3 @@ class Quiz extends Component {
 
 
 export default Quiz;
-

@@ -1,5 +1,5 @@
-//!!! IMPORTANT: No push to github as long as the clientId is visible in the files!
-const clientId = process.env.REACT_APP_API_KEY; 
+//!!! IMPORTANT: No push to github as long as the clientId is visible in the files! Hello
+const clientId = '9287dabde0594abb9afdf476873dc991'; 
 const redirectUri = 'http://localhost:3000/'; // Have to add this to an accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
  
@@ -22,11 +22,12 @@ const Spotify = {
           window.location = accessUrl;
         }
       },
-       getPlaylist()   {
-       
+       getPlaylist(country)   {
+
+            let ID = country;
             const accessToken = Spotify.getaccessToken();                   
             const headers = { Authorization: `Bearer ${accessToken}` };          
-            return fetch('https://api.spotify.com/v1/playlists/4kCRwBU4lLcXZZrapYOEcL', {headers: headers
+            return fetch(`https://api.spotify.com/v1/playlists/${ID}`, {headers: headers
           }).then(response => {
             return response.json();
           });
