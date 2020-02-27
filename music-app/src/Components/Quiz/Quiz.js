@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Button from '../Buttons/Button';
 import './Quiz.css'
 import '../../App.css'
+import Button from '../Buttons/Button';
 import Shuffle from '../Utils/Shuffle';
 import Spotify from '../Utils/Spotify';
 import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
@@ -157,7 +157,7 @@ class Quiz extends Component {
         axios.get(`https://api.chucknorris.io/jokes/random`),
         axios.get(`https://api.chucknorris.io/jokes/random`)
       ]);
-     */  
+       */
 
     async componentDidMount() {
         
