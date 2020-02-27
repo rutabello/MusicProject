@@ -5,7 +5,7 @@ import Shuffle from './Utils/Shuffle';
 import Spotify from './Utils/Spotify';
 import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
 import Sound from 'react-sound'
-import ReplayButton from './Buttons/ReplayButton'
+import './MistakesList.css'
 
 class Quiz extends Component {
 
@@ -174,15 +174,15 @@ class Quiz extends Component {
                     }
                 </div>
                 <div>
-                    <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
+                    <p className={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
                 </div>
-                <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
-                    <h4>Learn from your mistakes</h4>
-                    <ul>
+                <div className={this.unknownSongs.length > 0 ? "show" : "hide"}>
+                    <h4 id="mis-title">Learn from your mistakes</h4>
+                    <ul id="mistakes">
                         {this.unknownSongs.map((song) => {
                             return (
                                 <div className="list">
-                                    <li>{song} 
+                                    <li className="mistake">{song} 
                                         <button className="repeat-button" onClick={this.state.playing ? () => this.stopMusic() : () => this.getSongUrl(song)}>
                                             {this.state.playing ? "Pause" : "Listen again"} 
                                         </button>

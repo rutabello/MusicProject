@@ -1,92 +1,87 @@
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
 .fourButtons {
-    /* display: flex;
-	align-items: center; */
+	flex: 25%;
+	display: flex;
+	flex-wrap: wrap;
 	margin-top: 15px;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 100%;
+	background: rgba(0,0,0,.7);
+        opacity: .9;
 }
 
-.myButton {
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	background-color:#768d87;
-	border-radius:5px;
-	border:1px solid #566963;
-	display:inline-block;
+.button {
 	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:11px 23px;
-	text-decoration:none;
-    text-shadow:0px -1px 0px #000000;
-    /* flex-basis: 50%; */
-	width: 90%;
+	max-width: 25%;
 	height: 70px;
-    /* height: 70px; //Need something to make all buttons heigh increase when one needs to */
-    margin-bottom: 10px;
-}
-
-.myButton:hover {
-	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-	background-color:#6c7c7c;
-}
-
-.myButton:active {
-	position:relative;
-	top:1px;
+	margin:1em 1em 1em 12em;
+	display: inline-block;
+	padding: 15px 30px;
+	transition: 0.2s;
+	font-size: 19px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 @media (max-width:450px){
 	 .button.myButton.button{
-		display: block;
+		
 		margin: 0.4em auto;
 	}
 }
 
 .button {
-    flex-basis: 50%;
+	flex: 25%;
+	
 }
 
 .red {
-	background:linear-gradient(to bottom, #d63737 5%, #691b1b 100%);
-	background-color:#d63737;
-	border:1px solid #566963;
+	background: black;
+	border:1.5px solid  #ff003c;
+	color: #ff003c;
+	border-radius: 7px;
 }
 
 .green {
-	background:linear-gradient(to bottom, #31ad26 5%, #245215 100%);
-	background-color:#31ad26;
-	border:1px solid #566963;
+	background:black;
+	border:4px solid #31ad26;
+	color: #31ad26;
+	border-radius: 7px;
 }
 
-
-
-/* .myButton {
-	display: inline-block;
-	padding:0.35em 1.2em;
-	border:0.1em solid #FFFFFF;
-	margin:0 0.3em 0.3em 0;
-	border-radius:0.12em;
-	box-sizing: border-box;
-	text-decoration:none;
-	font-family:'Roboto',sans-serif;
-	font-weight:300;
-	color:#FFFFFF;
-	text-align:center;
-	transition: all 0.2s;
-}
 	
 .myButton:hover{
-	color:#000000;
-	background-color:#FFFFFF;
+	color: black!important;
+	background: #2695ff;
+	box-shadow: 0px 0px 5px #ff003c, 0px 0px 25px #ff003c, 0px 0px 50px #ff003c, 0px 0px 100px #ff003c;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005); 
+    
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+	background: #2695ff;
+	box-shadow: 0px 0px 5px #ff003c, 0px 0px 25px #ff003c, 0px 0px 50px #ff003c, 0px 0px 100px #ff003c;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005); 
 }
 	
 @media all and (max-width:30em){
 	 .myButton{
-		display:block;
+		display:flex;
 		margin:0.4em auto;
+		flex: 25%;
 	}
-} */
+} 
 
 /* .neon {
 	color: #fff;

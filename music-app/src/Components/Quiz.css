@@ -1,5 +1,6 @@
 .forceGrayColor button {
-    background: #768d87 !important;
+	border:1.5px solid  rgb(0, 89, 255);
+    color: rgb(0, 89, 255)!important;
 }
 
 .show {
@@ -16,4 +17,16 @@ li {
 
 .countdown {
     margin-top: 25px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    background: #121212;
+    background: rgba(0,0,0,.7);
+        opacity: .7;
+}
+
+.QuestionAndAnswers  {
+    background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg)  no-repeat center center fixed;
+    background-size:cover;
+    margin:0
 }
