@@ -22,6 +22,8 @@ class PlayerCountdown extends Component {
 
     this.countdownIsDisplayed = true;
 
+    this.props.setPlayingToFalse();
+
     this.props.showAnswerCount(); //This makes the answer counter appear only when you've started playing the game and not before
 
     this.props.setNewRandomSong();
@@ -31,6 +33,8 @@ class PlayerCountdown extends Component {
       playStatus: Sound.status.PLAYING,
       isPlaying: true,
       playClicked: true //This makes the 'play' button disappear once you click on it
+
+      //I need to setState, but not his state but this props' state!!!!!!!!!!!!!!!!!!!!
     })
 
     setTimeout(() => {

@@ -10,6 +10,7 @@ import ReplayButton from './Buttons/ReplayButton'
 class Quiz extends Component {
 
     spotifyObject = {}
+    spotifyFilteredObjArr= []
     display = ""
     chosenSong = ""
     coincidence = false
@@ -41,7 +42,7 @@ class Quiz extends Component {
      */
     getSongsToDisplay = (currentSongName) => {
 
-        var allSongsArr = this.spotifyObject.tracks.items.map(function (item){
+        var allSongsArr = this.spotifyFilteredObjArr.map(function (item){
             return item.track.name
         });
         
@@ -69,7 +70,7 @@ class Quiz extends Component {
 
     setNewRandomSong = () => {
         
-        var randomSong = this.spotifyObject.tracks.items[Math.floor(Math.random()*this.spotifyObject.tracks.items.length)].track;
+        var randomSong = this.spotifyFilteredObjArr[Math.floor(Math.random()*this.spotifyFilteredObjArr.length)].track;
 
         this.setState({
             currentSong: {
@@ -77,7 +78,7 @@ class Quiz extends Component {
                 name: randomSong.name
             },
             songNames: this.getSongsToDisplay(randomSong.name),
-            hideResults: true, //I don't think thingthis line is needed since it's not changing any
+            hideResults: true,
             total: this.state.total +1,
             playerState: Sound.status.STOPPED
         });
@@ -110,7 +111,7 @@ class Quiz extends Component {
 
     getSongUrl = (songName) => {
         
-        var allTracksArr = this.spotifyObject.tracks.items.map((item) => { //allTracksArr is an array made of tracks (each one, in an object, and as much tracks as songs are in the playlist)
+        var allTracksArr = this.spotifyFilteredObjArr.map((item) => { //allTracksArr is an array made of tracks (each one, in an object, and as much tracks as songs are in the playlist)
             return item.track
         })
 
@@ -138,11 +139,24 @@ class Quiz extends Component {
         })
     }
 
+    filterRightSongsFromSpotifyObject = (spotifyObject) => {
+        this.spotifyFilteredObjArr = this.spotifyObject.tracks.items.filter(function (item) {
+        return item.track.preview_url !== null})
+    }
+
+    setPlayingToFalse = () => {
+        this.setState({
+            playing: false
+        })
+    }
 
     async componentDidMount() {
         
         this.spotifyObject = await Spotify.getPlaylist();
+        console.log(this.spotifyObject);
+        this.filterRightSongsFromSpotifyObject()
     }
+
 
 
     render () {
@@ -157,6 +171,7 @@ class Quiz extends Component {
                         songURL={this.state.currentSong.preview_url} 
                         coincidence={this.checkCoincidence}
                         showAnswerCount={this.showAnswerCount}
+                        setPlayingToFalse={this.setPlayingToFalse}
                     />
                 </div>
 
@@ -174,9 +189,9 @@ class Quiz extends Component {
                     }
                 </div>
                 <div>
-                    <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
+                    <p className={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
                 </div>
-                <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
+                <div className={this.unknownSongs.length > 0 ? "show" : "hide"}>
                     <h4>Learn from your mistakes</h4>
                     <ul>
                         {this.unknownSongs.map((song) => {
