@@ -1,7 +1,43 @@
 .map {
     
     display: flex;
-    margin-left: 38%;
+    margin-top: 5%;
+    margin-left: 26%;
     margin-right: 20%;
     
   }
+
+  .forceGrayColor button {
+    background: #768d87 !important;
+}
+
+.show {
+    display: inline
+}
+
+.hide {
+    display: none
+}
+
+li {
+    list-style: none
+}
+
+.countdown {
+    margin-top: 25px;
+}
+
+.instruct {
+
+    color: white;
+}
+
+.link {
+
+    color: white;
+    width: 150px;
+    text-decoration: none;
+    border: 1px solid white;
+    display: flex;
+    
+}

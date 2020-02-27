@@ -4,6 +4,8 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 const SONG_TIMER_DURATION = 10;
 
+
+
 class PlayerCountdown extends Component {
 
   // Properties
@@ -14,8 +16,11 @@ class PlayerCountdown extends Component {
     uniqueKey: Date.now()
   }
 
+
   exampleRef = React.createRef(); // Create the ref
   countdownIsDisplayed = false
+
+ 
 
   // Methods
   playMusicStartTimer = () => {
@@ -97,6 +102,8 @@ class PlayerCountdown extends Component {
 };
 
 export default PlayerCountdown;
+
+
 
 // Circle Countdown Info https://www.npmjs.com/package/react-countdown-circle-timer
 
