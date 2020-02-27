@@ -14,7 +14,7 @@ class PlayerCountdown extends Component {
     uniqueKey: Date.now()
   }
 
-  exampleRef = React.createRef(); // Create the ref
+  // exampleRef = React.createRef(); // Commented this cause it's not needed anymore since we changed the countdown. Not erasing it, just in case.
   countdownIsDisplayed = false
 
   // Methods
@@ -22,7 +22,7 @@ class PlayerCountdown extends Component {
 
     this.countdownIsDisplayed = true;
 
-    this.props.setPlayingToFalse();
+    this.props.setPlayingToFalse(); //This makes the 'pause' button become a 'play again' when 'next song' is clicked
 
     this.props.showAnswerCount(); //This makes the answer counter appear only when you've started playing the game and not before
 
