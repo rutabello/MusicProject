@@ -396,15 +396,20 @@ import Sound from 'react-sound';
                   <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
               </div>
               <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
-                  <h4 className="instruct">Learn from your mistakes</h4>
-                  <ul className="instruct"
-                   >
+                  <h4 id="mis-title" className="instruct">Learn from your mistakes</h4>
+                  <ul id="mistakes" className="instruct"
+                   >  
                       {this.unknownSongs.map((song) => {
                           return (
-                              <div>
-                                  <li>{song} <button onClick={() => this.getSongUrl(song)}>Listen again</button></li>
-                                  {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
-                              </div>
+                            <div className="list">
+                            <li className="mistake">{song} 
+                                <button className="repeat-button" onClick={this.state.playing ? () => this.stopMusic() : () => this.getSongUrl(song)}>
+                                    {this.state.playing ? "Pause" : "Listen again"} 
+                                </button>
+                                {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
+                                {/* Still need to figure out how to start playing a new song if the user doesn't pause the old song before */}
+                            </li>
+                        </div>
                           )
                       })}
                   </ul>
@@ -422,7 +427,7 @@ import Sound from 'react-sound';
                
           <h2 className="instruct">{this.state.beforeGame}</h2>
           <h3><Link className="link" to="/">Out the door!</Link></h3>                
-          <h3 onClick={this.show}><Link className="link" to="map">Start</Link></h3>
+         {/*  <h3 onClick={this.show}><Link className="link" to="map">Start</Link></h3> */}
           </div>
             
     );
