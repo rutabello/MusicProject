@@ -14,6 +14,11 @@ let germany = "6HiZDoQlmYliE3RhFm4Fek";
 let germanyClassics = '4BfSTZ6p3bQCZNmV7eovMD';
 let rockAllTime = "2FbDbxcvDsshnzDNc29oFH";
 
+import Shuffle from './Utils/Shuffle';
+import Spotify from './Utils/Spotify';
+import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
+import Sound from 'react-sound'
+import './MistakesList.css'
 
 class Quiz extends Component {
 
@@ -41,7 +46,9 @@ class Quiz extends Component {
         correctAnswers: 0,
         total: 0,
         songUrl: "",
-        playerState: Sound.status.PLAYING
+        playerState: Sound.status.PLAYING,
+        playing: false,
+        replayingSong: ""
     }
 
     /**
@@ -132,32 +139,22 @@ class Quiz extends Component {
 
         this.setState({
             songUrl: songUrl,
-            playerState: Sound.status.PLAYING
+            playerState: Sound.status.PLAYING,
+            playing: true,
+            replayingSong: songName
         })
 
 
         // return this.spotifyObject.tracks.items.filter(item => item.track.name === songName)[0].preview_url This does the same as getSongUrl but with much less lines
     }
 
-        changeList = () => {
+    stopMusic = () => {
+        this.setState({
+            playerState: Sound.status.STOPPED,
+            playing: false
+        })
+    }
 
-             let newList = germanyClassics;
-
-             this.setState({
-
-                clave: newList
-             })
-              console.log(this.state.clave)
-            }
-    
-     /* 
-      async componentDidMount() {
-      // Make two requests
-      const [firstResponse, secondResponse] = await Promise.all([
-        axios.get(`https://api.chucknorris.io/jokes/random`),
-        axios.get(`https://api.chucknorris.io/jokes/random`)
-      ]);
-       */
 
     async componentDidMount() {
         
@@ -170,7 +167,7 @@ class Quiz extends Component {
         return (
             <div className="QuestionAndAnswers">
 
-                <div className="Countdown">
+                <div className="countdown">
                     <PlayerCountdown
                         onMusicPlays={this.chooseSongs}
                         setNewRandomSong={this.setNewRandomSong}
@@ -180,7 +177,7 @@ class Quiz extends Component {
                     />
                 </div>
 
-                <div className={"FourButtons " + (this.state.hideResults ? 'forceGrayColor' : "")} >
+                <div className={"fourButtons " + (this.state.hideResults ? 'forceGrayColor' : "")} >
                     {this.state.songNames.map((songName) => {
                         return (
                             <Button 
@@ -194,16 +191,21 @@ class Quiz extends Component {
                     }
                 </div>
                 <div>
-                    <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
+                    <p className={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
                 </div>
-                <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
-                    <h4>Learn from your mistakes</h4>
-                    <ul>
+                <div className={this.unknownSongs.length > 0 ? "show" : "hide"}>
+                    <h4 id="mis-title">Learn from your mistakes</h4>
+                    <ul id="mistakes">
                         {this.unknownSongs.map((song) => {
                             return (
-                                <div>
-                                    <li>{song} <button onClick={() => this.getSongUrl(song)}>Listen again</button></li>
-                                     {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
+                                <div className="list">
+                                    <li className="mistake">{song} 
+                                        <button className="repeat-button" onClick={this.state.playing ? () => this.stopMusic() : () => this.getSongUrl(song)}>
+                                            {this.state.playing ? "Pause" : "Listen again"} 
+                                        </button>
+                                        {/* We write it with an arrow function instead of a 'normal' function so we can avoid an infinite loop when setting the state */}
+                                        {/* Still need to figure out how to start playing a new song if the user doesn't pause the old song before */}
+                                    </li>
                                 </div>
                             )
                         })}
