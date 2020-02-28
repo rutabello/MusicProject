@@ -2,6 +2,7 @@ import React from 'react'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import {Link} from 'react-router-dom';
 import '../../App.css';
+import '../Quiz/Quiz.css'
 import './Map.css';
 import '../Home/Button.css'
 import './../MistakesList.css';
