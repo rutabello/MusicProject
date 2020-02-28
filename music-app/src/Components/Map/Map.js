@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import '../../App.css';
 import './Map.css';
 import '../Home/Button.css'
+import './../MistakesList.css';
 import Button from '../Buttons/Button';
 import Shuffle from '../Utils/Shuffle';
 import Spotify from '../Utils/Spotify';

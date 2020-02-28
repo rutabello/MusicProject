@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Quiz.css'
 import '../../App.css'
+import './MistakesList.css';
 import Button from '../Buttons/Button';
 import Shuffle from '../Utils/Shuffle';
 import Spotify from '../Utils/Spotify';
@@ -8,17 +9,6 @@ import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
 import Sound from 'react-sound';
 import {Link} from 'react-router-dom';
 
-
-let worldAll = "37i9dQZEVXbMDoHDwVN2tF";
-let germany = "6HiZDoQlmYliE3RhFm4Fek";
-let germanyClassics = '4BfSTZ6p3bQCZNmV7eovMD';
-let rockAllTime = "2FbDbxcvDsshnzDNc29oFH";
-
-import Shuffle from './Utils/Shuffle';
-import Spotify from './Utils/Spotify';
-import PlayerCountdown from './PlayerCountdown/PlayerCountdown';
-import Sound from 'react-sound'
-import './MistakesList.css'
 
 class Quiz extends Component {
 
