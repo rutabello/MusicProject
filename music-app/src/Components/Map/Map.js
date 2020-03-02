@@ -318,7 +318,7 @@ import Countries from '../Utils/Countries';
                 return (
 
               <section>
-               <h2 className={this.state.showMap == true ? "map-title" : "hide"}>Choose a country</h2>
+               <h2 className={this.state.showMap == true ? "map-title" : "hide"}>Choose a country!</h2>
                  <div className="map">            
                   <div className={this.state.showMap == true ? "show" : "hide"}>
                       <LeafletMap 
@@ -550,7 +550,8 @@ import Countries from '../Utils/Countries';
                       
          
           </div>
-
+          
+         { /* <h3 className={this.state.showMap == true ? "hide" : "show"} id="btn-game" >Show me the map again!</h3> */}
           <h3><Link className="link" to="/">Out the door!</Link></h3>   
 
           </section>

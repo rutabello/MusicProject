@@ -22,7 +22,7 @@
 }
 
 .show {
-    display: inline
+    display: inline;
 }
 
 .show p {
@@ -39,11 +39,11 @@
 }
 
 .hide {
-    display: none
+    display: none;
 }
 
 li {
-    list-style: none
+    list-style: none;
 }
 
 .countdown {
