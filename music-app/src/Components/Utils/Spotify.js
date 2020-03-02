@@ -1,15 +1,15 @@
 //!!! IMPORTANT: No push to github as long as the clientId is visible in the files!
-const clientId = ''; 
+const clientId = '70bc8f049a454f5e95545f6852c1cf76'; 
 const redirectUri = 'http://localhost:3000/'; // Have to add this to an accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
 // for connection with the map: connect playlist id to the markers and save it in a const to insert it later in the 
 // getplaylist() method.
 
-//let germany = idsfasdf3498; let spain; let france; let USA; let Russia; let Italy
+
 
 const Spotify = {
 
-  name: "Lena",
+  
 
   getaccessToken (){
       if (accessToken){
@@ -53,8 +53,6 @@ const Spotify = {
        
   }
  
-
-  
   // This way you can access the returned object. "collaborative" is just the first property that appears,
   // probably nothing we will actually use, just as an example of how to access it.
  // const play = Spotify.getPlaylist().then((value) => {console.log(value.collaborative)});

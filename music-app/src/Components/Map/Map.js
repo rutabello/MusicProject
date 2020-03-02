@@ -11,8 +11,7 @@ import Shuffle from '../Utils/Shuffle';
 import Spotify from '../Utils/Spotify';
 import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
 import Sound from 'react-sound';
-
-
+import Countries from '../Utils/Countries';
 
 
       class Map extends React.Component {
@@ -55,6 +54,16 @@ import Sound from 'react-sound';
               australia: "72pX2gM4o2eOX68tmLcRPs",
               india: "37i9dQZEVXbLZ52XmnySJg",
               congo: "6OrCOUcHTeJeg0NQRlEVMK",
+              usa: "37i9dQZEVXbLRQDuF5jeBp",
+              peru: "1U8CDNWLUL65u9g77sKCys",
+              argentinia: "37i9dQZEVXbMMy2roB9myp",
+              brasil: "37i9dQZEVXbMXbN3EUUhlg",
+              catalunya: "5IczcOjRojDGQmphylNgAk",
+              portugal: "37i9dQZEVXbKyJS56d1pgi",
+              austria: "7r36EDSbzLnsGHtjV2qkcf",
+              china: "0n9pUnDvJEIavvDfGnJqJl",
+              czech: "37i9dQZEVXbIP3c3fqVrJY",
+              palikir: "37i9dQZF1DZ06evO2EUrsw",
               world: "37i9dQZEVXbMDoHDwVN2tF",
               jazz: "37i9dQZF1DX7YCknf2jT6s",
              
@@ -202,6 +211,8 @@ import Sound from 'react-sound';
               
     componentDidUpdate  = async  (prevProps, prevState) => {
 
+      
+
         if (prevState.clave !== this.state.clave){
             if (this.state.clave === this.state.italy){
               this.spotifyObject = await Spotify.getPlaylist(this.state.italy)
@@ -242,9 +253,43 @@ import Sound from 'react-sound';
                                               }    else if (this.state.clave === this.state.congo){
                                                 this.spotifyObject = await Spotify.getPlaylist(this.state.congo)    
                                                 this.filterRightSongsFromSpotifyObject();        
-            }                 
+                                                 }    else if (this.state.clave === this.state.peru){
+                                                  this.spotifyObject = await Spotify.getPlaylist(this.state.peru)    
+                                                  this.filterRightSongsFromSpotifyObject();        
+                                                   }  else if (this.state.clave === this.state.argentinia){
+                                                    this.spotifyObject = await Spotify.getPlaylist(this.state.argentinia)    
+                                                    this.filterRightSongsFromSpotifyObject();        
+                                                     }   else if (this.state.clave === this.state.brasil){
+                                                      this.spotifyObject = await Spotify.getPlaylist(this.state.brasil)    
+                                                      this.filterRightSongsFromSpotifyObject();        
+                                                       }     else if (this.state.clave === this.state.catalunya){
+                                                        this.spotifyObject = await Spotify.getPlaylist(this.state.catalunya)    
+                                                        this.filterRightSongsFromSpotifyObject();        
+                                                         }  else if (this.state.clave === this.state.portugal){
+                                                          this.spotifyObject = await Spotify.getPlaylist(this.state.portugal)    
+                                                          this.filterRightSongsFromSpotifyObject();        
+                                                           }   else if (this.state.clave === this.state.austria){
+                                                            this.spotifyObject = await Spotify.getPlaylist(this.state.austria)    
+                                                            this.filterRightSongsFromSpotifyObject();        
+                                                             }    else if (this.state.clave === this.state.china){
+                                                              this.spotifyObject = await Spotify.getPlaylist(this.state.china)    
+                                                              this.filterRightSongsFromSpotifyObject();        
+                                                               }    else if (this.state.clave === this.state.czech){
+                                                                this.spotifyObject = await Spotify.getPlaylist(this.state.czech)    
+                                                                this.filterRightSongsFromSpotifyObject();        
+                                                                 }      else if (this.state.clave === this.state.usa){
+                                                                  this.spotifyObject = await Spotify.getPlaylist(this.state.usa)    
+                                                                  this.filterRightSongsFromSpotifyObject();        
+                                                                   }     else if (this.state.clave === this.state.palikir){
+                                                                    this.spotifyObject = await Spotify.getPlaylist(this.state.palikir)    
+                                                                    this.filterRightSongsFromSpotifyObject();        
+                                                                     }                       
+                                                
+                            
           }
         }
+
+        
             
         show = (event) =>   {
 
@@ -272,7 +317,7 @@ import Sound from 'react-sound';
                <div className={this.state.showMap == true ? "show" : "hide"}>
                   <LeafletMap 
                     center={[50, 10]}
-                    zoom={2.5}
+                    zoom={4}
                     maxZoom={10}
                     attributionControl={true}
                     zoomControl={true}
@@ -285,6 +330,8 @@ import Sound from 'react-sound';
                     <TileLayer
                       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                     />
+
+                    
                     <Marker position={[50, 10]}>
                       <Popup>
                         <p id="Germany!" className="6HiZDoQlmYliE3RhFm4Fek" onClick={this.show} >Get to know Germanys top 50!</p> 
@@ -363,6 +410,66 @@ import Sound from 'react-sound';
                         <p id="Congo!" className="6OrCOUcHTeJeg0NQRlEVMK" onClick={this.show}>Get to know Congos top 50!</p> 
                       </Popup>
                     </Marker>
+
+                    <Marker position={[37, -96]}>
+                      <Popup>
+                        <p id="USA!" className="37i9dQZEVXbLRQDuF5jeBp" onClick={this.show}>Get to know USAs top 50!</p> 
+                      </Popup>
+                    </Marker>
+
+                    <Marker position={[-9, -75]}>
+                      <Popup>
+                        <p id="Peru!" className="1U8CDNWLUL65u9g77sKCys" onClick={this.show}>Get to know Perus top 50!</p> 
+                      </Popup>
+                    </Marker>
+                               
+                    <Marker position={[-38, -64]}>
+                      <Popup>
+                        <p id="Argentinia!" className="37i9dQZEVXbMMy2roB9myp" onClick={this.show}>Get to know Argentinias top 50!</p> 
+                      </Popup>
+                    </Marker>                    
+                                 
+                    <Marker position={[-14, -52]}>
+                      <Popup>
+                        <p id="Brasil!" className="37i9dQZEVXbMXbN3EUUhlg" onClick={this.show}>Get to know Brasils top 50!</p> 
+                      </Popup>
+                    </Marker>
+
+                    <Marker position={[41, 0.5]}>
+                      <Popup>
+                        <p id="Catalunya!" className="37i9dQZEVXbMXbN3EUUhlg" onClick={this.show}>Get to know Catalunyas top 50!</p> 
+                      </Popup>
+                    </Marker>
+                   
+                    <Marker position={[39, -8]}>
+                      <Popup>
+                        <p id="Portugal!" className="37i9dQZEVXbKyJS56d1pgi" onClick={this.show}>Get to know Portugals top 50!</p> 
+                      </Popup>
+                    </Marker>
+                   
+                    <Marker position={[47.5, 14.5]}>
+                      <Popup>
+                        <p id="Austria!" className="7r36EDSbzLnsGHtjV2qkcf" onClick={this.show}><a>Get to know Austrias top 50!</a></p> 
+                      </Popup>
+                    </Marker>
+                                        
+                    <Marker position={[36, 104]}>
+                      <Popup>
+                        <p id="China!" className="0n9pUnDvJEIavvDfGnJqJl" onClick={this.show}>Get to know Chinas top 50!</p> 
+                      </Popup>
+                    </Marker>
+                 
+                    <Marker position={[50, 15.4]}>
+                      <Popup>
+                        <p id="Czech Republic!" className="37i9dQZEVXbIP3c3fqVrJY" onClick={this.show}>Get to know Czech Republics top 50!</p> 
+                      </Popup>
+                    </Marker>
+
+                    <Marker position={[6.917222, 158.158889]}>
+                      <Popup>
+                        <p id="Palikir!" className="37i9dQZF1DZ06evO2EUrsw" onClick={this.show}>Get to know Palikirs top 50!</p> 
+                      </Popup>
+                    </Marker>
                   </LeafletMap>
           </div>
 
@@ -429,7 +536,7 @@ import Sound from 'react-sound';
                
           <h2 className="instruct">{this.state.beforeGame}</h2>
           <h3><Link className="link" to="/">Out the door!</Link></h3>                
-         {/*  <h3 onClick={this.show}><Link className="link" to="map">Start</Link></h3> */}
+         
           </div>
             
     );
@@ -441,14 +548,7 @@ export default Map;
 
 /* 
 
-let countries = [
-  {
-    latitude: 10,
-    longitude: 30,
-    countryName: "Germany",
-    text: "Get to know Germanys top 50"
-  }
-]
+
 
 countries.map(country =>
   <Marker position={[{country.latitude}, 13]}>
