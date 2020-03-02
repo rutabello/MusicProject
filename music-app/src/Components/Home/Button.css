@@ -16,10 +16,9 @@
     padding:5px 10px;
     font-weight:600;
     position:absolute;
-    bottom: -18%;
+    bottom: 10%;
     left: 78%;
     right: 50%;
-    margin:0 auto;
     background:rgba(0,0,0,0.2);
     box-shadow:0 0 0px 3px rgba(0,0,0,0.2);
     opacity:0.4
@@ -28,7 +27,8 @@
   #btn-div {
     display:block;
     position:absolute;
-    bottom: -18%;
+    bottom: 10%;
     left: 78%;
     right: 50%;
+    margin:0 auto;
   }

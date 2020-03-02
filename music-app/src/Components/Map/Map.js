@@ -267,104 +267,106 @@ import Sound from 'react-sound';
 
              render() {
                 return (
-                        
-             <div>
-               <div className={this.state.showMap == true ? "show" : "hide"}>
-                  <LeafletMap 
-                    center={[50, 10]}
-                    zoom={2.5}
-                    maxZoom={10}
-                    attributionControl={true}
-                    zoomControl={true}
-                    doubleClickZoom={true}
-                    scrollWheelZoom={true}
-                    dragging={true}
-                    animate={true}
-                    easeLinearity={0.35}
-                  >
-                    <TileLayer
-                      url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-                    />
-                    <Marker position={[50, 10]}>
-                      <Popup>
-                        <p id="Germany!" className="6HiZDoQlmYliE3RhFm4Fek" onClick={this.show} >Get to know Germanys top 50!</p> 
-                      </Popup>
-                    </Marker>
+                   
+                 
+                    <div className="map">
+                      <div className={this.state.showMap == true ? "show" : "hide"}>
+                          <LeafletMap 
+                            center={[50, 10]}
+                            zoom={2.5}
+                            maxZoom={10}
+                            attributionControl={true}
+                            zoomControl={true}
+                            doubleClickZoom={true}
+                            scrollWheelZoom={true}
+                            dragging={true}
+                            animate={true}
+                            easeLinearity={0.35}
+                          >
+                            <TileLayer
+                              url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+                            />
+                            <Marker position={[50, 10]}>
+                              <Popup>
+                                <p id="Germany!" className="6HiZDoQlmYliE3RhFm4Fek" onClick={this.show} >Get to know Germanys top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[42, 13]}>
-                      <Popup>
-                        <p id="Italy!" className="44SmkW2zYTkTxVXBTZU7In" onClick={this.show}>Get to know Italys top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[42, 13]}>
+                              <Popup>
+                                <p id="Italy!" className="44SmkW2zYTkTxVXBTZU7In" onClick={this.show}>Get to know Italys top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[46, 2 ]}>
-                      <Popup>
-                        <p id="France!" className="23psvx6vUY6pmJHxE5yagM" onClick={this.show}>Get to know Frances' top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[46, 2 ]}>
+                              <Popup>
+                                <p id="France!" className="23psvx6vUY6pmJHxE5yagM" onClick={this.show}>Get to know Frances' top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[40, -3 ]}>
-                      <Popup>
-                        <p id="Spain!" className="7ki8VipxMygh7Y8ZdPRvmX" onClick={this.show}>Get to know Spains top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[40, -3 ]}>
+                              <Popup>
+                                <p id="Spain!" className="7ki8VipxMygh7Y8ZdPRvmX" onClick={this.show}>Get to know Spains top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[53, -3 ]}>
-                      <Popup>
-                        <p id="UK!" className="153yGNYdzvyCZxzDnIzNUx" onClick={this.show}>Get to know Britan top 50!</p> 
-                      </Popup>
-                    </Marker>
-                  
-                  
-                  <Marker position={[60, 17 ]}>
-                      <Popup>
-                        <p id="Sweden!" className="32g1QdVZbo696md2nCP6kF" onClick={this.show}>Get to know Swedens top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[53, -3 ]}>
+                              <Popup>
+                                <p id="UK!" className="153yGNYdzvyCZxzDnIzNUx" onClick={this.show}>Get to know Britan top 50!</p> 
+                              </Popup>
+                            </Marker>
+                          
+                          
+                          <Marker position={[60, 17 ]}>
+                              <Popup>
+                                <p id="Sweden!" className="32g1QdVZbo696md2nCP6kF" onClick={this.show}>Get to know Swedens top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[46, 25 ]}>
-                      <Popup>
-                        <p id="Romania!" className="37i9dQZEVXbNZbJ6TZelCq" onClick={this.show}>Get to know Romanias top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[46, 25 ]}>
+                              <Popup>
+                                <p id="Romania!" className="37i9dQZEVXbNZbJ6TZelCq" onClick={this.show}>Get to know Romanias top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[61.5, 105.3 ]}>
-                      <Popup>
-                        <p id="Russia!" className="1YWZENg7270nSPEm5i0mSk" onClick={this.show}>Get to know Russias top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[61.5, 105.3 ]}>
+                              <Popup>
+                                <p id="Russia!" className="1YWZENg7270nSPEm5i0mSk" onClick={this.show}>Get to know Russias top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[47, 29]}>
-                      <Popup>
-                        <p id="Moldavia!" className="4JuhvFePRTzgFA2J1zhRJg" onClick={this.show}>Get to know Moldavias top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[47, 29]}>
+                              <Popup>
+                                <p id="Moldavia!" className="4JuhvFePRTzgFA2J1zhRJg" onClick={this.show}>Get to know Moldavias top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[39, 35]}>
-                      <Popup>
-                        <p id="Turkey!" className="0rkeWiJ7L3BRuXDWqmgZSZ" onClick={this.show}>Get to know Turkeys top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[39, 35]}>
+                              <Popup>
+                                <p id="Turkey!" className="0rkeWiJ7L3BRuXDWqmgZSZ" onClick={this.show}>Get to know Turkeys top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[-25, 134]}>
-                      <Popup>
-                        <p id="Australia!" className="72pX2gM4o2eOX68tmLcRPs" onClick={this.show}>Get to know Australias top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[-25, 134]}>  
+                              <Popup>
+                                <p id="Australia!" className="72pX2gM4o2eOX68tmLcRPs" onClick={this.show}>Get to know Australias top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[21, 79]}>
-                      <Popup>
-                        <p id="India!" className="37i9dQZEVXbLZ52XmnySJg" onClick={this.show}>Get to know Indias top 50!</p> 
-                      </Popup>
-                    </Marker>
+                            <Marker position={[21, 79]}>
+                              <Popup>
+                                <p id="India!" className="37i9dQZEVXbLZ52XmnySJg" onClick={this.show}>Get to know Indias top 50!</p> 
+                              </Popup>
+                            </Marker>
 
-                    <Marker position={[-1.5, 22]}>
-                      <Popup>
-                        <p id="Congo!" className="6OrCOUcHTeJeg0NQRlEVMK" onClick={this.show}>Get to know Congos top 50!</p> 
-                      </Popup>
-                    </Marker>
-                  </LeafletMap>
-          </div>
+                            <Marker position={[-1.5, 22]}>
+                              <Popup>
+                                <p id="Congo!" className="6OrCOUcHTeJeg0NQRlEVMK" onClick={this.show}>Get to know Congos top 50!</p> 
+                              </Popup>
+                            </Marker>
+                          </LeafletMap>
+                    </div>
+                
 
 
           <div className={this.state.game}>
@@ -394,11 +396,11 @@ import Sound from 'react-sound';
                   })
                   }
               </div>
-              <div>
+              <div className="instruct">
                   <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
               </div>
               <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
-                  <h4 id="mis-title" className="instruct">Learn from your mistakes</h4>
+                  <h4 className="instruct">Learn from your mistakes</h4>
                   <ul id="mistakes" className="instruct"
                    >  
                       {this.unknownSongs.map((song) => {
@@ -426,10 +428,6 @@ import Sound from 'react-sound';
                   </div>
               </div>
                     
-               
-          <h2 className="instruct">{this.state.beforeGame}</h2>
-          <h3><Link className="link" to="/">Out the door!</Link></h3>                
-         {/*  <h3 onClick={this.show}><Link className="link" to="map">Start</Link></h3> */}
           </div>
             
     );

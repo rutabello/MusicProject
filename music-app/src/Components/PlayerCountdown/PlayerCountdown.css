@@ -35,3 +35,15 @@
   .displaynone {
     display: none;
   }
+
+  .next-button {
+    border: none;
+    font-size: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: transparent;
+  }
+
+  .timer .value {
+    text-align:center;
+  }

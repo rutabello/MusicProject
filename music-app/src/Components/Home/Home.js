@@ -3,12 +3,16 @@ import {Link} from 'react-router-dom';
 import '../../App.css';
 import './Home.css';
 import './Button.css';
-//import Button from './Button';
+import Button from './Button';
+
+let audio = new Audio("https://freesound.org/data/previews/506/506053_10991815-lq.mp3")
+
+  const start = () => {
+    audio.play()
+  }
 
 const Home = props => (
 
-  
-  
       <div className="main">
           <span className="webdev">Play  
             <span>&nbsp;Some</span>
@@ -18,7 +22,7 @@ const Home = props => (
           
           <h3 className="hideGame"><Link to="/">Home</Link></h3>
          { /*<h3><Link to="quiz">Quiz</Link></h3>*/}
-          <h3 ><Link id="btn-game" to="map">Start Game</Link></h3>
+          <h3 ><Link id="btn-game" to="map" onClick={start} >Start Game</Link></h3>
        
       </div>
   

@@ -18,19 +18,22 @@
    flex-direction: column;
   
 }
-
+.FourButtons {
+    width: 600px;
+    margin: auto;
+}
 .button {
-	cursor:pointer;
-	max-width: 25%;
-	height: 70px;
-	margin:1em 1em 1em 1em;
-	display: inline-block;
-	padding: 15px 30px;
-	transition: 0.2s;
-	font-size: 19px;
+    cursor: pointer;
+    width: 400px;
+    display: block !important;
+    height: auto;
+    margin: 20px auto;
+    padding: 15px 30px;
+    transition: 0.2s;
+    font-size: 16px;
     text-decoration: none;
-	text-transform: uppercase;
-	margin-left:37%;
+    text-transform: uppercase;
+    min-height: 4em;
 }
 
 @media (max-width:450px){
