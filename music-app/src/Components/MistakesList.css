@@ -1,7 +1,3 @@
-#mis-title {
-    justify-content: space-between;
-    padding: 15px 15px;
-}
 
 #mistakes {
   max-width: 400px;
@@ -29,4 +25,6 @@
     opacity: .7;
   }
 
-
+.instruct  {
+  text-align:center;
+}

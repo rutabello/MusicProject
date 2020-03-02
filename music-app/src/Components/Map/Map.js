@@ -313,7 +313,7 @@ import Countries from '../Utils/Countries';
              render() {
                 return (
                         
-             <div>
+             <div className="map">
                <div className={this.state.showMap == true ? "show" : "hide"}>
                   <LeafletMap 
                     center={[50, 10]}
@@ -472,8 +472,7 @@ import Countries from '../Utils/Countries';
                     </Marker>
                   </LeafletMap>
           </div>
-
-
+                   
           <div className={this.state.game}>
 
           <div className="QuestionAndAnswers">
@@ -501,11 +500,11 @@ import Countries from '../Utils/Countries';
                   })
                   }
               </div>
-              <div>
+              <div className="instruct">
                   <p class={this.answerCountShow ? "show" : "hide"}>Right answers: {this.state.correctAnswers}  out of {this.state.total}</p>
               </div>
               <div class={this.unknownSongs.length > 0 ? "show" : "hide"}>
-                  <h4 id="mis-title" className="instruct">Learn from your mistakes</h4>
+                  <h4 className="instruct">Learn from your mistakes</h4>
                   <ul id="mistakes" className="instruct"
                    >  
                       {this.unknownSongs.map((song) => {
@@ -534,8 +533,8 @@ import Countries from '../Utils/Countries';
               </div>
                     
                
-          <h2 className="instruct">{this.state.beforeGame}</h2>
-          <h3><Link className="link" to="/">Out the door!</Link></h3>                
+    {  /*    <h2 className="instruct">{this.state.beforeGame}</h2>
+          <h3><Link className="link" to="/">Out the door!</Link></h3>    */ }           
          
           </div>
             
