@@ -133,4 +133,24 @@
 	80% { opacity: 0; }
 	100% { opacity: 0; }
 }
- 
+
+
+ @media only screen and (max-width: 750px) {
+   .main {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    font-family: "neontubes";
+    font-size: 17vw;
+    text-align: center;
+    white-space: nowrap;
+    width:800px; 
+    margin:0 auto;
+   }
+   .main .socod {
+     font-size: 70px;
+   }
+
+ }

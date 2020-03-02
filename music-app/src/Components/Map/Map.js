@@ -313,7 +313,7 @@ import Countries from '../Utils/Countries';
              render() {
                 return (
                         <section>
-                        <h2 className="title">Chose a country</h2>
+                        <h2 className="map-title">Choose a country</h2>
              <div className="map">            
                <div className={this.state.showMap == true ? "show" : "hide"}>
                   <LeafletMap 
@@ -426,7 +426,7 @@ import Countries from '../Utils/Countries';
                                
                     <Marker position={[-38, -64]}>
                       <Popup>
-                        <p id="Argentinia!" className="37i9dQZEVXbMMy2roB9myp" onClick={this.show}>Get to know Argentinias top 50!</p> 
+                        <p id="Argentinia!" className="37i9dQZEVXbMMy2roB9myp" onClick={this.show}>Get to know Argentinas top 50!</p> 
                       </Popup>
                     </Marker>                    
                                  
@@ -534,7 +534,7 @@ import Countries from '../Utils/Countries';
               </div>
                     
                
-          <h2 className="instruct">{this.state.beforeGame}</h2>
+          <h2 className="instruct" id="youchoose" >{this.state.beforeGame}</h2>
                       
          
           </div>
