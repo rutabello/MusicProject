@@ -312,8 +312,9 @@ import Countries from '../Utils/Countries';
 
              render() {
                 return (
-                        
-             <div className="map">
+                        <section>
+                        <h2 className="title">Chose a country</h2>
+             <div className="map">            
                <div className={this.state.showMap == true ? "show" : "hide"}>
                   <LeafletMap 
                     center={[50, 10]}
@@ -533,11 +534,14 @@ import Countries from '../Utils/Countries';
               </div>
                     
                
-    {  /*    <h2 className="instruct">{this.state.beforeGame}</h2>
-          <h3><Link className="link" to="/">Out the door!</Link></h3>    */ }           
+          <h2 className="instruct">{this.state.beforeGame}</h2>
+                      
          
           </div>
-            
+          
+          <h3><Link className="link" to="/">Out the door!</Link></h3>   
+
+          </section>
     );
   }
 }

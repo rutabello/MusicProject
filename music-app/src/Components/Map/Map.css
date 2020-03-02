@@ -39,7 +39,8 @@ li {
     width: 150px;
     text-decoration: none;
     border: 1px solid white;
-    display: flex;
+    display: flex; 
+    text-align: center;
     
 }
 
@@ -93,4 +94,9 @@ li {
 
   .repeat-button {
     margin-left: 30px;
+}
+
+.title {
+
+    text-align: center;
 }
