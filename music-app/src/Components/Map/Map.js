@@ -41,25 +41,26 @@ import Countries from '../Utils/Countries';
               },
 
               clave: "37i9dQZF1DX7YCknf2jT6s",
-              german: "6HiZDoQlmYliE3RhFm4Fek",
-              spain: "7ki8VipxMygh7Y8ZdPRvmX",
+              german: "37i9dQZEVXbJiZcmkrIHGU",
+              spain: "37i9dQZEVXbNFJfN1Vw8d9",
               uk: "153yGNYdzvyCZxzDnIzNUx",
               italy: "44SmkW2zYTkTxVXBTZU7In",
               france: "23psvx6vUY6pmJHxE5yagM",
-              sweden: "32g1QdVZbo696md2nCP6kF",
+              sweden: "0cv343uhXAtvjJP4Gnowuj",
               romania: "37i9dQZEVXbNZbJ6TZelCq",
               russia: "1YWZENg7270nSPEm5i0mSk",
               moldavia: "4JuhvFePRTzgFA2J1zhRJg",
               turkey: "0rkeWiJ7L3BRuXDWqmgZSZ",
-              australia: "72pX2gM4o2eOX68tmLcRPs",
+              australia: "6m3jFNfRNxNnrIhOuV7I0D",
               india: "37i9dQZEVXbLZ52XmnySJg",
               congo: "6OrCOUcHTeJeg0NQRlEVMK",
-              usa: "37i9dQZEVXbLRQDuF5jeBp",
+              usa: "37i9dQZF1DXbITWG1ZJKYt",
               peru: "1U8CDNWLUL65u9g77sKCys",
-              argentinia: "37i9dQZEVXbMMy2roB9myp",
+              ecuador: "5XqV4c48IyUfwNYo2XAWxK",
+              argentina: "37i9dQZEVXbMMy2roB9myp",
               brasil: "37i9dQZEVXbMXbN3EUUhlg",
-              catalunya: "5IczcOjRojDGQmphylNgAk",
-              portugal: "37i9dQZEVXbKyJS56d1pgi",
+              catalunya: "2uh5yoMISpxTTPyes2mEPg",
+              portugal: "6FD2g7R1tezpU8QnhJ3FsX",
               austria: "7r36EDSbzLnsGHtjV2qkcf",
               china: "0n9pUnDvJEIavvDfGnJqJl",
               czech: "37i9dQZEVXbIP3c3fqVrJY",
@@ -257,7 +258,7 @@ import Countries from '../Utils/Countries';
                                                   this.spotifyObject = await Spotify.getPlaylist(this.state.peru)    
                                                   this.filterRightSongsFromSpotifyObject();        
                                                    }  else if (this.state.clave === this.state.argentinia){
-                                                    this.spotifyObject = await Spotify.getPlaylist(this.state.argentinia)    
+                                                    this.spotifyObject = await Spotify.getPlaylist(this.state.argentina)    
                                                     this.filterRightSongsFromSpotifyObject();        
                                                      }   else if (this.state.clave === this.state.brasil){
                                                       this.spotifyObject = await Spotify.getPlaylist(this.state.brasil)    
@@ -283,7 +284,10 @@ import Countries from '../Utils/Countries';
                                                                    }     else if (this.state.clave === this.state.palikir){
                                                                     this.spotifyObject = await Spotify.getPlaylist(this.state.palikir)    
                                                                     this.filterRightSongsFromSpotifyObject();        
-                                                                     }                       
+                                                                     }   else if (this.state.clave === this.state.ecuador){
+                                                                      this.spotifyObject = await Spotify.getPlaylist(this.state.ecuador)    
+                                                                      this.filterRightSongsFromSpotifyObject();        
+                                                                       }                           
                                                 
                             
           }
@@ -312,22 +316,23 @@ import Countries from '../Utils/Countries';
 
              render() {
                 return (
-                        <section>
-                        <h2 className="title">Chose a country</h2>
-             <div className="map">            
-               <div className={this.state.showMap == true ? "show" : "hide"}>
-                  <LeafletMap 
-                    center={[50, 10]}
-                    zoom={4}
-                    maxZoom={10}
-                    attributionControl={true}
-                    zoomControl={true}
-                    doubleClickZoom={true}
-                    scrollWheelZoom={true}
-                    dragging={true}
-                    animate={true}
-                    easeLinearity={0.35}
-                  >
+
+              <section>
+               <h2 className={this.state.showMap == true ? "title" : "hide"}>Choose a country</h2>
+                 <div className="map">            
+                  <div className={this.state.showMap == true ? "show" : "hide"}>
+                      <LeafletMap 
+                        center={[50, 10]}
+                        zoom={4}
+                        maxZoom={10}
+                        attributionControl={true}
+                        zoomControl={true}
+                        doubleClickZoom={true}
+                        scrollWheelZoom={true}
+                        dragging={true}
+                        animate={true}
+                        easeLinearity={0.35}
+                      >
                     <TileLayer
                       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                     />
@@ -335,140 +340,146 @@ import Countries from '../Utils/Countries';
                     
                     <Marker position={[50, 10]}>
                       <Popup>
-                        <p id="Germany!" className="6HiZDoQlmYliE3RhFm4Fek" onClick={this.show} >Get to know Germanys top 50!</p> 
+                        <p id="Germany!" className="37i9dQZEVXbJiZcmkrIHGU" onClick={this.show} >Click to discover Germany's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[42, 13]}>
                       <Popup>
-                        <p id="Italy!" className="44SmkW2zYTkTxVXBTZU7In" onClick={this.show}>Get to know Italys top 50!</p> 
+                        <p id="Italy!" className="44SmkW2zYTkTxVXBTZU7In" onClick={this.show}>Click to discover Italy's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[46, 2 ]}>
                       <Popup>
-                        <p id="France!" className="23psvx6vUY6pmJHxE5yagM" onClick={this.show}>Get to know Frances' top 50!</p> 
+                        <p id="France!" className="23psvx6vUY6pmJHxE5yagM" onClick={this.show}>Click to discover France's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[40, -3 ]}>
                       <Popup>
-                        <p id="Spain!" className="7ki8VipxMygh7Y8ZdPRvmX" onClick={this.show}>Get to know Spains top 50!</p> 
+                        <p id="Spain!" className="37i9dQZEVXbNFJfN1Vw8d9" onClick={this.show}>Click to discover Spain's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[53, -3 ]}>
                       <Popup>
-                        <p id="UK!" className="153yGNYdzvyCZxzDnIzNUx" onClick={this.show}>Get to know Britan top 50!</p> 
+                        <p id="UK!" className="153yGNYdzvyCZxzDnIzNUx" onClick={this.show}>Click to discover Britan's top 50!</p> 
                       </Popup>
                     </Marker>
                   
                   
                   <Marker position={[60, 17 ]}>
                       <Popup>
-                        <p id="Sweden!" className="32g1QdVZbo696md2nCP6kF" onClick={this.show}>Get to know Swedens top 50!</p> 
+                        <p id="Sweden!" className="0cv343uhXAtvjJP4Gnowuj" onClick={this.show}>Click to discover folk music of Sweden!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[46, 25 ]}>
                       <Popup>
-                        <p id="Romania!" className="37i9dQZEVXbNZbJ6TZelCq" onClick={this.show}>Get to know Romanias top 50!</p> 
+                        <p id="Romania!" className="37i9dQZEVXbNZbJ6TZelCq" onClick={this.show}>Click to discover Romania's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[61.5, 105.3 ]}>
                       <Popup>
-                        <p id="Russia!" className="1YWZENg7270nSPEm5i0mSk" onClick={this.show}>Get to know Russias top 50!</p> 
+                        <p id="Russia!" className="1YWZENg7270nSPEm5i0mSk" onClick={this.show}>Click to discover Russia's  top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[47, 29]}>
                       <Popup>
-                        <p id="Moldavia!" className="4JuhvFePRTzgFA2J1zhRJg" onClick={this.show}>Get to know Moldavias top 50!</p> 
+                        <p id="Moldavia!" className="4JuhvFePRTzgFA2J1zhRJg" onClick={this.show}>Click to discover the sound of Moldavia!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[39, 35]}>
                       <Popup>
-                        <p id="Turkey!" className="0rkeWiJ7L3BRuXDWqmgZSZ" onClick={this.show}>Get to know Turkeys top 50!</p> 
+                        <p id="Turkey!" className="0rkeWiJ7L3BRuXDWqmgZSZ" onClick={this.show}>Click to discover Turkey's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[-25, 134]}>
                       <Popup>
-                        <p id="Australia!" className="72pX2gM4o2eOX68tmLcRPs" onClick={this.show}>Get to know Australias top 50!</p> 
+                        <p id="Australia!" className="6m3jFNfRNxNnrIhOuV7I0D" onClick={this.show}>Click to discover australian hits!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[21, 79]}>
                       <Popup>
-                        <p id="India!" className="37i9dQZEVXbLZ52XmnySJg" onClick={this.show}>Get to know Indias top 50!</p> 
+                        <p id="India!" className="37i9dQZEVXbLZ52XmnySJg" onClick={this.show}>Click to discover India's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[-1.5, 22]}>
                       <Popup>
-                        <p id="Congo!" className="6OrCOUcHTeJeg0NQRlEVMK" onClick={this.show}>Get to know Congos top 50!</p> 
+                        <p id="Congo!" className="6OrCOUcHTeJeg0NQRlEVMK" onClick={this.show}>Click to discover the sound of Congo!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[37, -96]}>
                       <Popup>
-                        <p id="USA!" className="37i9dQZEVXbLRQDuF5jeBp" onClick={this.show}>Get to know USAs top 50!</p> 
+                        <p id="USA!" className="37i9dQZF1DXbITWG1ZJKYt" onClick={this.show}>Click to discover alltime US Jazz Classics!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[-9, -75]}>
                       <Popup>
-                        <p id="Peru!" className="1U8CDNWLUL65u9g77sKCys" onClick={this.show}>Get to know Perus top 50!</p> 
+                        <p id="Peru!" className="1U8CDNWLUL65u9g77sKCys" onClick={this.show}>Click to discover Brasil's top 50!</p> 
+                      </Popup>
+                    </Marker>
+
+                    <Marker position={[-1.83, -78.2]}>
+                      <Popup>
+                        <p id="Ecuador!" className="5XqV4c48IyUfwNYo2XAWxK" onClick={this.show}>Click to discover Ecuadors's top 50!</p> 
                       </Popup>
                     </Marker>
                                
                     <Marker position={[-38, -64]}>
                       <Popup>
-                        <p id="Argentinia!" className="37i9dQZEVXbMMy2roB9myp" onClick={this.show}>Get to know Argentinias top 50!</p> 
+                        <p id="Argentina!" className="37i9dQZEVXbMMy2roB9myp" onClick={this.show}>Click to discover Argentina's top 50!</p> 
                       </Popup>
                     </Marker>                    
                                  
                     <Marker position={[-14, -52]}>
                       <Popup>
-                        <p id="Brasil!" className="37i9dQZEVXbMXbN3EUUhlg" onClick={this.show}>Get to know Brasils top 50!</p> 
+                        <p id="Brasil!" className="37i9dQZEVXbMXbN3EUUhlg" onClick={this.show}>Click to discover Brasil's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[41, 0.5]}>
                       <Popup>
-                        <p id="Catalunya!" className="37i9dQZEVXbMXbN3EUUhlg" onClick={this.show}>Get to know Catalunyas top 50!</p> 
+                        <p id="Catalunya!" className="2uh5yoMISpxTTPyes2mEPg" onClick={this.show}>Click here to discover the sound of Catalunya!</p> 
                       </Popup>
                     </Marker>
                    
                     <Marker position={[39, -8]}>
                       <Popup>
-                        <p id="Portugal!" className="37i9dQZEVXbKyJS56d1pgi" onClick={this.show}>Get to know Portugals top 50!</p> 
+                        <p id="Portugal!" className="6FD2g7R1tezpU8QnhJ3FsX" onClick={this.show}>Click here to discover Portugal's top 50</p> 
                       </Popup>
                     </Marker>
                    
                     <Marker position={[47.5, 14.5]}>
                       <Popup>
-                        <p id="Austria!" className="7r36EDSbzLnsGHtjV2qkcf" onClick={this.show}><a>Get to know Austrias top 50!</a></p> 
+                        <p id="Austria!" className="7r36EDSbzLnsGHtjV2qkcf" onClick={this.show}>Click to discover Austria's  top 50!</p> 
                       </Popup>
                     </Marker>
                                         
                     <Marker position={[36, 104]}>
                       <Popup>
-                        <p id="China!" className="0n9pUnDvJEIavvDfGnJqJl" onClick={this.show}>Get to know Chinas top 50!</p> 
+                        <p id="China!" className="0n9pUnDvJEIavvDfGnJqJl" onClick={this.show}>Click to discover China's top 50!</p> 
                       </Popup>
                     </Marker>
                  
                     <Marker position={[50, 15.4]}>
                       <Popup>
-                        <p id="Czech Republic!" className="37i9dQZEVXbIP3c3fqVrJY" onClick={this.show}>Get to know Czech Republics top 50!</p> 
+                        <p id="Czech Republic!" className="37i9dQZEVXbIP3c3fqVrJY" onClick={this.show}>Click to discover Czech Republic's top 50!</p> 
                       </Popup>
                     </Marker>
 
                     <Marker position={[6.917222, 158.158889]}>
                       <Popup>
-                        <p id="Palikir!" className="37i9dQZF1DZ06evO2EUrsw" onClick={this.show}>Get to know Palikirs top 50!</p> 
+                        <p id="Palikir!" className="37i9dQZF1DZ06evO2EUrsw" onClick={this.show}>Click to discover Palikir's top 50!</p> 
                       </Popup>
                     </Marker>
                   </LeafletMap>
@@ -538,7 +549,7 @@ import Countries from '../Utils/Countries';
                       
          
           </div>
-          
+
           <h3><Link className="link" to="/">Out the door!</Link></h3>   
 
           </section>
@@ -549,14 +560,3 @@ import Countries from '../Utils/Countries';
 export default Map;
 
 
-/* 
-
-
-
-countries.map(country =>
-  <Marker position={[{country.latitude}, 13]}>
-  <Popup>
-    <p id="Italy" onClick={this.start}>Get to know Germanys top 50!</p> 
-  </Popup>
-</Marker>
-  ) */

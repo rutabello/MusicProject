@@ -5,6 +5,7 @@
     margin-left: 26%;
     margin-right: 20%;
     
+    
   }
 
   .forceGrayColor button {
@@ -14,6 +15,19 @@
 
 .show {
     display: inline
+}
+
+.show p {
+
+
+    font-weight: 700;
+    font-size: 25px;
+    color: rgb(0, 89, 255);
+}
+
+.show p:hover {
+
+    cursor: pointer;
 }
 
 .hide {
@@ -41,6 +55,8 @@ li {
     border: 1px solid white;
     display: flex; 
     text-align: center;
+    padding-left: 20px;
+    margin-left: 40%;
     
 }
 
@@ -98,5 +114,5 @@ li {
 
 .title {
 
-    text-align: center;
+    margin-left: 40%;
 }
