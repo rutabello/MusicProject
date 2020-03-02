@@ -318,7 +318,7 @@ import Countries from '../Utils/Countries';
                 return (
 
               <section>
-               <h2 className={this.state.showMap == true ? "title" : "hide"}>Choose a country</h2>
+               <h2 className={this.state.showMap == true ? "map-title" : "hide"}>Choose a country</h2>
                  <div className="map">            
                   <div className={this.state.showMap == true ? "show" : "hide"}>
                       <LeafletMap 
@@ -333,6 +333,7 @@ import Countries from '../Utils/Countries';
                         animate={true}
                         easeLinearity={0.35}
                       >
+            
                     <TileLayer
                       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                     />
@@ -545,7 +546,7 @@ import Countries from '../Utils/Countries';
               </div>
                     
                
-          <h2 className="instruct">{this.state.beforeGame}</h2>
+          <h2 className="instruct" id="youchoose" >{this.state.beforeGame}</h2>
                       
          
           </div>

@@ -76,7 +76,7 @@ class PlayerCountdown extends Component {
         {
           this.state.playClicked
             ? null
-            : <button onClick={this.playMusicStartTimer}>Play</button>
+            : <button id="play-button" onClick={this.playMusicStartTimer}>Play</button>
         }
 
         <Sound 
