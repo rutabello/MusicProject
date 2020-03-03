@@ -11,7 +11,7 @@ import Shuffle from '../Utils/Shuffle';
 import Spotify from '../Utils/Spotify';
 import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
 import Sound from 'react-sound';
-import Countries from '../Utils/Countries';
+// import Countries from '../Utils/Countries';
 
 
 class Map extends React.Component {
@@ -39,31 +39,32 @@ class Map extends React.Component {
         name: "",
     },
     clave: "37i9dQZF1DX7YCknf2jT6s",
-    german: "6HiZDoQlmYliE3RhFm4Fek",
-    spain: "7ki8VipxMygh7Y8ZdPRvmX",
+    german: "37i9dQZEVXbJiZcmkrIHGU",
+    spain: "37i9dQZEVXbNFJfN1Vw8d9",
     uk: "153yGNYdzvyCZxzDnIzNUx",
     italy: "44SmkW2zYTkTxVXBTZU7In",
     france: "23psvx6vUY6pmJHxE5yagM",
-    sweden: "32g1QdVZbo696md2nCP6kF",
+    sweden: "0cv343uhXAtvjJP4Gnowuj",
     romania: "37i9dQZEVXbNZbJ6TZelCq",
     russia: "1YWZENg7270nSPEm5i0mSk",
     moldavia: "4JuhvFePRTzgFA2J1zhRJg",
     turkey: "0rkeWiJ7L3BRuXDWqmgZSZ",
-    australia: "72pX2gM4o2eOX68tmLcRPs",
+    australia: "6m3jFNfRNxNnrIhOuV7I0D",
     india: "37i9dQZEVXbLZ52XmnySJg",
     congo: "6OrCOUcHTeJeg0NQRlEVMK",
-    usa: "37i9dQZEVXbLRQDuF5jeBp",
+    usa: "37i9dQZF1DXbITWG1ZJKYt",
     peru: "1U8CDNWLUL65u9g77sKCys",
-    argentinia: "37i9dQZEVXbMMy2roB9myp",
+    ecuador: "5XqV4c48IyUfwNYo2XAWxK",
+    argentina: "37i9dQZEVXbMMy2roB9myp",
     brasil: "37i9dQZEVXbMXbN3EUUhlg",
-    catalunya: "5IczcOjRojDGQmphylNgAk",
-    portugal: "37i9dQZEVXbKyJS56d1pgi",
+    catalunya: "2uh5yoMISpxTTPyes2mEPg",
+    portugal: "6FD2g7R1tezpU8QnhJ3FsX",
     austria: "7r36EDSbzLnsGHtjV2qkcf",
     china: "0n9pUnDvJEIavvDfGnJqJl",
     czech: "37i9dQZEVXbIP3c3fqVrJY",
     palikir: "37i9dQZF1DZ06evO2EUrsw",
-    world: "37i9dQZEVXbMDoHDwVN2tF",
-    jazz: "37i9dQZF1DX7YCknf2jT6s",
+
+
     
 
     hideResults: true,
@@ -135,8 +136,6 @@ class Map extends React.Component {
       if (this.coincidence !== true) { 
           this.unknownSongs.push(this.state.currentSong.name)
       }
-
-      console.log('paco' + this.unknownSongs)
   
       this.setState({
           hideResults: false,
@@ -198,92 +197,11 @@ class Map extends React.Component {
 
             
   componentDidUpdate  = async  (prevProps, prevState) => {
-      if (prevState.clave !== this.state.clave) {
-          
-        this.spotifyObject = await Spotify.getPlaylist(this.state.clave)
-        this.filterRightSongsFromSpotifyObject();
-      }
+    if (prevState.clave !== this.state.clave) {
         
-      // if (paisEscollit === 'italy'){
-      //   this.spotifyObject = await Spotify.getPlaylist(paisEscollit 'italy')
-      //   this.filterRightSongsFromSpotifyObject();
-      // }
-
-
-
-      // if (this.state.clave === this.state.italy){
-      //       this.spotifyObject = await Spotify.getPlaylist(this.state.italy)
-      //       this.filterRightSongsFromSpotifyObject();
-      //       } else if (this.state.clave === this.state.german){
-      //         this.spotifyObject = await Spotify.getPlaylist(this.state.german)
-      //         this.filterRightSongsFromSpotifyObject();
-      //       }   else if (this.state.clave === this.state.france){
-      //         this.spotifyObject = await Spotify.getPlaylist(this.state.france) 
-      //         this.filterRightSongsFromSpotifyObject();        
-      //           } else if (this.state.clave === this.state.spain){
-      //             this.spotifyObject = await Spotify.getPlaylist(this.state.spain)    
-      //             this.filterRightSongsFromSpotifyObject();     
-      //           }     else if (this.state.clave === this.state.uk){
-      //                 this.spotifyObject = await Spotify.getPlaylist(this.state.uk)     
-      //                 this.filterRightSongsFromSpotifyObject();    
-      //               }   else if (this.state.clave === this.state.sweden){
-      //                   this.spotifyObject = await Spotify.getPlaylist(this.state.sweden)     
-      //                   this.filterRightSongsFromSpotifyObject();    
-      //                     }  else if (this.state.clave === this.state.romania){
-      //                       this.spotifyObject = await Spotify.getPlaylist(this.state.romania)   
-      //                       this.filterRightSongsFromSpotifyObject();      
-      //                       }   else if (this.state.clave === this.state.russia){
-      //                         this.spotifyObject = await Spotify.getPlaylist(this.state.russia)  
-      //                         this.filterRightSongsFromSpotifyObject();          
-      //                           }   else if (this.state.clave === this.state.moldavia){
-      //                             this.spotifyObject = await Spotify.getPlaylist(this.state.moldavia)     
-      //                             this.filterRightSongsFromSpotifyObject();       
-      //                             }   else if (this.state.clave === this.state.turkey){
-      //                               this.spotifyObject = await Spotify.getPlaylist(this.state.turkey)  
-      //                               this.filterRightSongsFromSpotifyObject();          
-      //                                 }   else if (this.state.clave === this.state.australia){
-      //                                   this.spotifyObject = await Spotify.getPlaylist(this.state.australia)  
-      //                                   this.filterRightSongsFromSpotifyObject();          
-      //                                   }    else if (this.state.clave === this.state.india){
-      //                                     this.spotifyObject = await Spotify.getPlaylist(this.state.india)    
-      //                                     this.filterRightSongsFromSpotifyObject();        
-      //                                       }    else if (this.state.clave === this.state.congo){
-      //                                         this.spotifyObject = await Spotify.getPlaylist(this.state.congo)    
-      //                                         this.filterRightSongsFromSpotifyObject();        
-      //                                           }    else if (this.state.clave === this.state.peru){
-      //                                           this.spotifyObject = await Spotify.getPlaylist(this.state.peru)    
-      //                                           this.filterRightSongsFromSpotifyObject();        
-      //                                             }  else if (this.state.clave === this.state.argentinia){
-      //                                             this.spotifyObject = await Spotify.getPlaylist(this.state.argentinia)    
-      //                                             this.filterRightSongsFromSpotifyObject();        
-      //                                               }   else if (this.state.clave === this.state.brasil){
-      //                                               this.spotifyObject = await Spotify.getPlaylist(this.state.brasil)    
-      //                                               this.filterRightSongsFromSpotifyObject();        
-      //                                                 }     else if (this.state.clave === this.state.catalunya){
-      //                                                 this.spotifyObject = await Spotify.getPlaylist(this.state.catalunya)    
-      //                                                 this.filterRightSongsFromSpotifyObject();        
-      //                                                   }  else if (this.state.clave === this.state.portugal){
-      //                                                   this.spotifyObject = await Spotify.getPlaylist(this.state.portugal)    
-      //                                                   this.filterRightSongsFromSpotifyObject();        
-      //                                                     }   else if (this.state.clave === this.state.austria){
-      //                                                     this.spotifyObject = await Spotify.getPlaylist(this.state.austria)    
-      //                                                     this.filterRightSongsFromSpotifyObject();        
-      //                                                       }    else if (this.state.clave === this.state.china){
-      //                                                       this.spotifyObject = await Spotify.getPlaylist(this.state.china)    
-      //                                                       this.filterRightSongsFromSpotifyObject();        
-      //                                                         }    else if (this.state.clave === this.state.czech){
-      //                                                         this.spotifyObject = await Spotify.getPlaylist(this.state.czech)    
-      //                                                         this.filterRightSongsFromSpotifyObject();        
-      //                                                           }      else if (this.state.clave === this.state.usa){
-      //                                                           this.spotifyObject = await Spotify.getPlaylist(this.state.usa)    
-      //                                                           this.filterRightSongsFromSpotifyObject();        
-      //                                                             }     else if (this.state.clave === this.state.palikir){
-      //                                                             this.spotifyObject = await Spotify.getPlaylist(this.state.palikir)    
-      //                                                             this.filterRightSongsFromSpotifyObject();        
-      //                                                               }                       
-                                              
-                          
-      // }
+      this.spotifyObject = await Spotify.getPlaylist(this.state.clave)
+      this.filterRightSongsFromSpotifyObject();
+    }
   }
 
             
@@ -304,9 +222,9 @@ class Map extends React.Component {
   render() {
     return (
       <section>
-        <h2 className="title">Chose a country</h2>
+        <h2 className={this.state.showMap === true ? "map-title" : "hide"}>Choose a country!</h2>
         <div className="map">            
-          <div className={this.state.showMap == true ? "show" : "hide"}>
+          <div className={this.state.showMap === true ? "show" : "hide"}>
             <LeafletMap 
               center={[50, 10]}
               zoom={4}
@@ -322,29 +240,28 @@ class Map extends React.Component {
               <TileLayer
                 url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
               />
-
               
               <Marker position={[50, 10]}>
                 <Popup>
-                  <p id="Germany!" className="6HiZDoQlmYliE3RhFm4Fek" onClick={this.show} >Get to know Germanys top 50!</p> 
+                  <p id="Germany!" className="37i9dQZEVXbJiZcmkrIHGU" onClick={this.show} >Get to know Germany's top 50!</p> 
                 </Popup>
               </Marker>
 
               <Marker position={[42, 13]}>
                 <Popup>
-                  <p id="Italy!" className="44SmkW2zYTkTxVXBTZU7In" onClick={this.show}>Get to know Italys top 50!</p> 
+                  <p id="Italy!" className="44SmkW2zYTkTxVXBTZU7In" onClick={this.show}>Get to know Italy's top 50!</p> 
                 </Popup>
               </Marker>
 
               <Marker position={[46, 2 ]}>
                 <Popup>
-                  <p id="France!" className="23psvx6vUY6pmJHxE5yagM" onClick={this.show}>Get to know Frances' top 50!</p> 
+                  <p id="France!" className="23psvx6vUY6pmJHxE5yagM" onClick={this.show}>Get to know France's top 50!</p> 
                 </Popup>
               </Marker>
 
               <Marker position={[40, -3 ]}>
                 <Popup>
-                  <p id="Spain!" className="7ki8VipxMygh7Y8ZdPRvmX" onClick={this.show}>Get to know Spains top 50!</p> 
+                  <p id="Spain!" className="37i9dQZEVXbNFJfN1Vw8d9" onClick={this.show}>Get to know Spain's top 50!</p> 
                 </Popup>
               </Marker>
 
@@ -356,7 +273,7 @@ class Map extends React.Component {
             
               <Marker position={[60, 17 ]}>
                 <Popup>
-                  <p id="Sweden!" className="32g1QdVZbo696md2nCP6kF" onClick={this.show}>Get to know Swedens top 50!</p> 
+                  <p id="Sweden!" className="0cv343uhXAtvjJP4Gnowuj" onClick={this.show}>Get to know Swedens top 50!</p> 
                 </Popup>
               </Marker>
 
@@ -386,7 +303,7 @@ class Map extends React.Component {
 
               <Marker position={[-25, 134]}>
                 <Popup>
-                  <p id="Australia!" className="72pX2gM4o2eOX68tmLcRPs" onClick={this.show}>Get to know Australias top 50!</p> 
+                  <p id="Australia!" className="6m3jFNfRNxNnrIhOuV7I0D" onClick={this.show}>Get to know Australias top 50!</p> 
                 </Popup>
               </Marker>
 
@@ -404,7 +321,7 @@ class Map extends React.Component {
 
               <Marker position={[37, -96]}>
                 <Popup>
-                  <p id="USA!" className="37i9dQZEVXbLRQDuF5jeBp" onClick={this.show}>Get to know USAs top 50!</p> 
+                  <p id="USA!" className="37i9dQZF1DXbITWG1ZJKYt" onClick={this.show}>Get to know USAs top 50!</p> 
                 </Popup>
               </Marker>
 
@@ -413,6 +330,12 @@ class Map extends React.Component {
                   <p id="Peru!" className="1U8CDNWLUL65u9g77sKCys" onClick={this.show}>Get to know Perus top 50!</p> 
                 </Popup>
               </Marker>
+
+              <Marker position={[-1.83, -78.2]}>
+                <Popup>
+                  <p id="Ecuador!" className="5XqV4c48IyUfwNYo2XAWxKs" onClick={this.show}>Get to know Ecuador's top 50!</p> 
+                </Popup>
+              </Marker>              
                           
               <Marker position={[-38, -64]}>
                 <Popup>
@@ -434,13 +357,13 @@ class Map extends React.Component {
               
               <Marker position={[39, -8]}>
                 <Popup>
-                  <p id="Portugal!" className="37i9dQZEVXbKyJS56d1pgi" onClick={this.show}>Get to know Portugals top 50!</p> 
+                  <p id="Portugal!" className="6FD2g7R1tezpU8QnhJ3FsX" onClick={this.show}>Get to know Portugals top 50!</p> 
                 </Popup>
               </Marker>
               
               <Marker position={[47.5, 14.5]}>
                 <Popup>
-                  <p id="Austria!" className="7r36EDSbzLnsGHtjV2qkcf" onClick={this.show}><a>Get to know Austrias top 50!</a></p> 
+                  <p id="Austria!" className="7r36EDSbzLnsGHtjV2qkcf" onClick={this.show}>Get to know Austrias top 50!</p> 
                 </Popup>
               </Marker>
                                   
@@ -511,10 +434,13 @@ class Map extends React.Component {
                 />
             </div>
           </div>
-      </div>
-      <h2 className="instruct">{this.state.beforeGame}</h2>
-      </div>
-      <h3><Link className="link" to="/">Out the door!</Link></h3>   
+          </div>
+          <h2 className="instruct" id="youchoose">{this.state.beforeGame}</h2>
+          </div>
+          <h3><Link className="link" to="/">Out the door!</Link></h3>   
+          <h2 className="instruct" id="youchoose" >{this.state.beforeGame}</h2>
+            { /* <h3 className={this.state.showMap == true ? "hide" : "show"} id="btn-game" >Show me the map again!</h3> */}
+              <h3><Link className="link" to="/">Out the door!</Link></h3>   
       </section>
     );
   }
@@ -523,14 +449,3 @@ class Map extends React.Component {
 export default Map;
 
 
-/* 
-
-
-
-countries.map(country =>
-  <Marker position={[{country.latitude}, 13]}>
-  <Popup>
-    <p id="Italy" onClick={this.start}>Get to know Germanys top 50!</p> 
-  </Popup>
-</Marker>
-  ) */

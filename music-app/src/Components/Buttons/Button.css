@@ -19,8 +19,8 @@
   
 }
 .FourButtons {
-    width: 600px;
-    margin: auto;
+    width: 750px;
+    margin: 0 auto;
 }
 .button {
     cursor: pointer;

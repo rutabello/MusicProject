@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import '../../App.css';
 import './Home.css';
 import './Button.css';
-import Button from './Button';
 
 let audio = new Audio("https://freesound.org/data/previews/506/506053_10991815-lq.mp3")
 
@@ -11,7 +10,7 @@ let audio = new Audio("https://freesound.org/data/previews/506/506053_10991815-l
     audio.play()
   }
 
-const Home = props => (
+const Home = () => (
 
       <div className="main">
           <span className="webdev">Play  

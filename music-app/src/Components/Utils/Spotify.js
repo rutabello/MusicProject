@@ -1,5 +1,5 @@
 //!!! IMPORTANT: No push to github as long as the clientId is visible in the files!
-const clientId = ''; 
+const clientId = process.env.REACT_APP_API_KEY;
 const redirectUri = 'http://localhost:3000/'; // Have to add this to an accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
 // for connection with the map: connect playlist id to the markers and save it in a const to insert it later in the 
@@ -8,9 +8,6 @@ let accessToken;
 
 
 const Spotify = {
-
-  
-
   getaccessToken (){
       if (accessToken){
           return accessToken ;
@@ -44,10 +41,8 @@ const Spotify = {
 
         let country = "6HiZDoQlmYliE3RhFm4Fek"
         this.setState({
-       
         playlistID: country,
       })
-      //console.log("here" + this.state.playlistID)
     }
 
        
@@ -57,9 +52,5 @@ const Spotify = {
   // probably nothing we will actually use, just as an example of how to access it.
  // const play = Spotify.getPlaylist().then((value) => {console.log(value.collaborative)});
  
-  //console.log(play) 
-
- 
-
 
 export default Spotify;

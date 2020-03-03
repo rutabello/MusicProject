@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import './Quiz.css'
-import '../../App.css'
-import './MistakesList.css';
-import Button from '../Buttons/Button';
-import Shuffle from '../Utils/Shuffle';
-import Spotify from '../Utils/Spotify';
-import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
 import Sound from 'react-sound';
 import {Link} from 'react-router-dom';
+
+import '../../App.css'
+import './MistakesList.css';
+import './Quiz.css'
+import Button from '../Buttons/Button';
+import PlayerCountdown from '../PlayerCountdown/PlayerCountdown';
+import Shuffle from '../Utils/Shuffle';
+import Spotify from '../Utils/Spotify';
 
 
 class Quiz extends Component {
@@ -101,8 +102,6 @@ class Quiz extends Component {
         if (this.coincidence !== true) { 
             this.unknownSongs.push(this.state.currentSong.name)
         }
-
-        console.log('paco' + this.unknownSongs)
     
         this.setState({
             hideResults: false,
@@ -147,7 +146,6 @@ class Quiz extends Component {
 
 
     async componentDidMount() {
-        
         this.spotifyObject = await Spotify.getPlaylist(this.state.clave);
     }
 
